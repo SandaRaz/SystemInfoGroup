@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class B_RegimeAlim extends CI_Model {
     
@@ -29,6 +28,10 @@ class B_RegimeAlim extends CI_Model {
     public function deleteRegimeAlim($id){
         $this->db->where('id_regime_Alime', $id);
         return $this->db->delete('Regime_Alimentaire');
+    }
+
+    public function insererRegAlim($data){
+        $this->db->insert('RegimeMenu', $data);
     }
     
 }

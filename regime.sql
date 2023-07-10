@@ -71,6 +71,10 @@ CREATE TABLE Regime_Alimentaire(
     prix DECIMAL(10,2)
 );
 
+INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.2, 1, 15000);
+INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.1, 1, 10000);
+INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.3, 1, 20000);
+
 CREATE TABLE Plat(
     id_plat INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255),
@@ -98,6 +102,11 @@ CREATE TABLE Menu(
     FOREIGN KEY (id_Pdeg) REFERENCES Repas (id_repas),
     FOREIGN KEY (id_Deg) REFERENCES Repas (id_repas),
     FOREIGN KEY (id_diner) REFERENCES Repas (id_repas)
+);
+
+CREATE TABLE RegimeMenu(
+    id_reg_alime int REFERENCES Regime_Alimentaire(id_regime_alime),
+    id_menu int REFERENCES Menu(id_menu);
 );
 
 ----------------------------------------SPORTIVE-----------------------------------------------
