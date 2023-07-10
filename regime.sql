@@ -5,7 +5,7 @@ use regime;
 
 -----------------------------------FRONT-OFFICE-----------------------------------
 create table Client(
-    id_client int int not null primary key auto_increment,
+    id_client int not null primary key auto_increment,
     nom varchar,
     prenom varchar,
     date_de_naissance date,
