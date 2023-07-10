@@ -170,6 +170,10 @@
                                 </div>
     
                         </div>
+                        <div class="card-body pt-3">
+                            <p>Payement par code <input type="text" name="code" style="border-top: none;border-left: none; border-right: none;"></p>
+                            <button type="submit" class="btn btn-primary">Payer</button>
+                        </div>
                     </div>
     
                 </div>
