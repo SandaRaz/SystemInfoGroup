@@ -1,6 +1,6 @@
-create database 
+create database regime;
 
-use 
+use regime;
 
 create table Client(
     id_client int int not null primary key auto_increment,
@@ -17,7 +17,7 @@ create table compte(
     id_compte int not null primary key auto_increment,
     id_client int,
     montant decimal(10,2),
-    -----------------FK client-------------------
+    FOREIGN KEY (id_client) REFERENCES client (id_client)
 );
 
 create table Mvt_compte(
@@ -26,7 +26,7 @@ create table Mvt_compte(
     benefice decimal(10,2),
     depense decimal(10,2),
     dates date,
-    --------------FK id_compte-----------------
+    FOREIGN KEY (id_compte) REFERENCES compte (id_compte)
 );
 
 create table code(
@@ -37,10 +37,12 @@ create table code(
 
 create table demande_code(
     id_code int,
-    id_client int
-    ------------FK id_code------------------
-    -----------KK id_client----------------
+    id_client int,
+    FOREIGN KEY (id_code) REFERENCES code (id_code),
+    FOREIGN KEY (id_client) REFERENCES client (id_client)
 );
+
+-------------------------------- ALIMENTAIRE-----------------------------------------------------
 
 create table Regime_Alimentaire(
     id_regime int not null primary key auto_increment,
@@ -50,6 +52,61 @@ create table Regime_Alimentaire(
     duree int
 );
 
+create table plat(
+    id_plat int not null pri key auto_increment,
+    nom varchar,
+    categorie int,
+    calorie decimal(10,2)
+);
+
+create table repas(
+    id_repas int not null primary key auto_increment,
+    types int,
+    id_Entrer int,
+    id_Resistance int,
+    id_Dessert int,
+    FOREIGN KEY (id_Entrer) REFERENCES plat (id_plat),
+    FOREIGN KEY (id_Resistance) REFERENCES plat (id_plat),
+    FOREIGN KEY (id_Dessert) REFERENCES plat (id_plat)
+);
+
+create table Menu(
+    id_menu int not null primary key auto_increment,
+    libelle varchar,
+    id_Pdeg int,
+    id_Deg int,
+    id_diner int,
+    FOREIGN KEY (id_Pdeg) REFERENCES repas (id_repas),
+    FOREIGN KEY (id_Deg) REFERENCES repas (id_repas),
+    FOREIGN KEY (id_diner) REFERENCES repas (id_repas)
+);
+
+----------------------------------------SPORTIVE-----------------------------------------------
+create table regime_sportive(
+    id_regime_sport not null primary key auto_increment,
+    libelle varchar,
+    action int,
+    valeur decimal(10,2),
+    duree_Jour int
+);
+
+create table mvt_physique(
+    id_mvt int not null auto_increment,
+    nom varchar
+);
+
+create table sport(
+    id_regime_sport int,
+    id_mvt int,
+    duree int,
+    FOREIGN KEY (id_regime_sport) REFERENCES regime_sportive (id_regime_sport),
+    FOREIGN KEY (id_mvt) REFERENCES mvt_physique (id_mvt)
+);
+
+
+
+
+----------------------------------------OBJECTIF---------------------------------------------
 create table objectif(
     id_objectif int not null primary key auto_increment,
     id_client int,
