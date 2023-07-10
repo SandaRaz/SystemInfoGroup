@@ -1,148 +1,146 @@
-create database regime;
-
-use regime;
-
-
 -----------------------------------FRONT-OFFICE-----------------------------------
-create table Client(
-    id_client int not null primary key auto_increment,
-    nom varchar,
-    prenom varchar,
-    date_de_naissance date,
-    genre varchar,
-    taille decimal(10,2),
-    email varchar,
-    mdp varchar
+CREATE TABLE Client(
+    id_client INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255),
+    prenom VARCHAR(255),
+    date_de_naissance DATE,
+    genre VARCHAR(255),
+    taille DECIMAL(10,2),
+    email VARCHAR(255),
+    mdp VARCHAR(255)
 );
 
-create table compte(
-    id_compte int not null primary key auto_increment,
-    id_client int,
-    montant decimal(10,2),
-    FOREIGN KEY (id_client) REFERENCES client (id_client)
+CREATE TABLE Compte(
+    id_compte INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_client INT,
+    montant DECIMAL(10,2),
+    FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
-create table Mvt_compte(
-    id_mvt int not null primary key auto_increment,
-    id_compte int,
-    benefice decimal(10,2),
-    depense decimal(10,2),
-    dates date,
-    FOREIGN KEY (id_compte) REFERENCES compte (id_compte)
+CREATE TABLE Mvt_compte(
+    id_mvt INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_compte INT,
+    benefice DECIMAL(10,2),
+    depense DECIMAL(10,2),
+    dates DATE,
+    FOREIGN KEY (id_compte) REFERENCES Compte (id_compte)
 );
 
-create table code(
-    id_code int not null primary key auto_increment,
-    code varchar,
-    valeur decimal(10,2)
+CREATE TABLE Code(
+    id_code INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(255),
+    valeur DECIMAL(10,2)
 );
 
-create table demande_code(
-    id_code int,
-    id_client int,
-    FOREIGN KEY (id_code) REFERENCES code (id_code),
-    FOREIGN KEY (id_client) REFERENCES client (id_client)
+CREATE TABLE Demande_code(
+    id_code INT,
+    id_client INT,
+    FOREIGN KEY (id_code) REFERENCES Code (id_code),
+    FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
 -------------------------------- ALIMENTAIRE-----------------------------------------------------
 
-create table Regime_Alimentaire(
-    id_regime_Alime int not null primary key auto_increment,
-    libelle varchar,
-    action int,
-    valeur decimal(10,2),
-    duree int,
-    prix decimal(10,2)
+CREATE TABLE Regime_Alimentaire(
+    id_regime_Alime INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(255),
+    action INT,
+    valeur DECIMAL(10,2),
+    duree INT,
+    prix DECIMAL(10,2)
 );
 
-create table plat(
-    id_plat int not null pri key auto_increment,
-    nom varchar,
-    categorie int,
-    calorie decimal(10,2)
+CREATE TABLE Plat(
+    id_plat INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255),
+    categorie INT,
+    calorie DECIMAL(10,2)
 );
 
-create table repas(
-    id_repas int not null primary key auto_increment,
-    types int,
-    id_Entrer int,
-    id_Resistance int,
-    id_Dessert int,
-    FOREIGN KEY (id_Entrer) REFERENCES plat (id_plat),
-    FOREIGN KEY (id_Resistance) REFERENCES plat (id_plat),
-    FOREIGN KEY (id_Dessert) REFERENCES plat (id_plat)
+CREATE TABLE Repas(
+    id_repas INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    types INT,
+    id_Entrer INT,
+    id_Resistance INT,
+    id_Dessert INT,
+    FOREIGN KEY (id_Entrer) REFERENCES Plat (id_plat),
+    FOREIGN KEY (id_Resistance) REFERENCES Plat (id_plat),
+    FOREIGN KEY (id_Dessert) REFERENCES Plat (id_plat)
 );
 
-create table Menu(
-    id_menu int not null primary key auto_increment,
-    libelle varchar,
-    id_Pdeg int,
-    id_Deg int,
-    id_diner int,
-    FOREIGN KEY (id_Pdeg) REFERENCES repas (id_repas),
-    FOREIGN KEY (id_Deg) REFERENCES repas (id_repas),
-    FOREIGN KEY (id_diner) REFERENCES repas (id_repas)
+CREATE TABLE Menu(
+    id_menu INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(255),
+    id_Pdeg INT,
+    id_Deg INT,
+    id_diner INT,
+    FOREIGN KEY (id_Pdeg) REFERENCES Repas (id_repas),
+    FOREIGN KEY (id_Deg) REFERENCES Repas (id_repas),
+    FOREIGN KEY (id_diner) REFERENCES Repas (id_repas)
 );
 
 ----------------------------------------SPORTIVE-----------------------------------------------
-create table regime_sportive(
-    id_regime_sport not null primary key auto_increment,
-    libelle varchar,
-    action int,
-    valeur decimal(10,2),
-    duree_Jour int
+CREATE TABLE Regime_sportive(
+    id_regime_sport INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(255),
+    action INT,
+    valeur DECIMAL(10,2),
+    duree_Jour INT
 );
 
-create table mvt_physique(
-    id_mvt int not null auto_increment,
-    nom varchar
+CREATE TABLE Mvt_physique(
+    id_mvt INT NOT NULL AUTO_INCREMENT,
+    nom VARCHAR(255),
+    PRIMARY KEY (id_mvt)
 );
 
-create table sport(
-    id_regime_sport int,
-    id_mvt int,
-    duree int,
-    FOREIGN KEY (id_regime_sport) REFERENCES regime_sportive (id_regime_sport),
-    FOREIGN KEY (id_mvt) REFERENCES mvt_physique (id_mvt)
+CREATE TABLE Sport(
+    id_regime_sport INT,
+    id_mvt INT,
+    duree INT,
+    FOREIGN KEY (id_regime_sport) REFERENCES Regime_sportive (id_regime_sport),
+    FOREIGN KEY (id_mvt) REFERENCES Mvt_physique (id_mvt)
 );
 
 ----------------------------------------OBJECTIF---------------------------------------------
-create table objectif(
-    id_objectif int not null primary key auto_increment,
-    id_client int,
-    poid_final decimal(10,2),
-    date_debut date,
-    date_fin date,
-    id_regime_Alime int,
-    id_regime_sport int,
+CREATE TABLE Objectif(
+    id_objectif INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_client INT,
+    poids_final DECIMAL(10,2),
+    date_debut DATE,
+    date_fin DATE,
+    id_regime_Alime INT,
+    id_regime_sport INT,
     FOREIGN KEY (id_regime_Alime) REFERENCES Regime_Alimentaire (id_regime_Alime),
-    FOREIGN KEY (id_regime_sport) REFERENCES regime_sportive (id_regime_sport),    
+    FOREIGN KEY (id_regime_sport) REFERENCES Regime_sportive (id_regime_sport),
+    FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
-create table historique_poid(
-    id_client int,
-    poids decimal(10,2),
-    dates date,
-    FOREIGN KEY (id_client) REFERENCES client (id_client),
+CREATE TABLE Historique_poids(
+    id_client INT,
+    poids DECIMAL(10,2),
+    dates DATE,
+    FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
 -------------------------------------BACK-OFFICE----------------------------------------------
 
-create table Admin(
-    id_admin int not null primary key auto_increment,
-    mdp varchar
+CREATE TABLE Admin(
+    id_admin INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    mdp VARCHAR(255)
 );
 
-create table caise(
-    id_caisse int not null primary key auto_increment,
-    montant decimal(10,2)
-);
-create table mvt_Caisse(
-    id_mvt_caisse int not null auto_increment,
-    id_caisse int,
-    benefice decimal(10,2),
-    depense decimal(10,2),
-    dates date,
-    FOREIGN KEY (id_caisse) REFERENCES caise (id_caisse)
+CREATE TABLE Caisse(
+    id_caisse INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    montant DECIMAL(10,2)
 );
 
+CREATE TABLE Mvt_Caisse(
+    id_mvt_caisse INT NOT NULL AUTO_INCREMENT,
+    id_caisse INT,
+    benefice DECIMAL(10,2),
+    depense DECIMAL(10,2),
+    dates DATE,
+    FOREIGN KEY (id_caisse) REFERENCES Caisse (id_caisse),
+    PRIMARY KEY (id_mvt_caisse)
+);
