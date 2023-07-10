@@ -8,8 +8,6 @@ class F_Client extends CI_Model{
         $this->load->database();
     }
 
-
-
     public function insertPoids($id_client, $newPoid) {
         $data = array(
             'poids' => $newPoid,
@@ -29,7 +27,7 @@ class F_Client extends CI_Model{
         $result=$this->db->query($query);
         return $result->nb;
     }
-    
+
 }
 
 ?>
