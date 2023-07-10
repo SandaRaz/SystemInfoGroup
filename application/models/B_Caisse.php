@@ -7,25 +7,26 @@ class B_Caisse extends CI_Model{
     }
 
     public function getListeRevenu($mois, $annee){
-        $query = "SELECT *, (benefice - depense) as revenu
-              FROM Mvt_Caisse 
-              WHERE benefice > depense 
-              AND MONTH(dates) = ? 
-              AND YEAR(dates) = ?";
+        $query = "SELECT id_caisse,SUM(benefice) as benefice,dates 
+            FROM Mvt_Caisse
+            WHERE MONTH(dates) = ? 
+            AND YEAR(dates) = ?
+            GROUP BY id_caisse,dates";
         $result = $this->db->query($query, array($mois, $annee));
     }
 
     public function getListeDepense($mois, $annee){
-        $query = "SELECT *, (benefice - depense) as depense
-              FROM Mvt_Caisse 
-              WHERE benefice < depense 
-              AND MONTH(dates) = ? 
-              AND YEAR(dates) = ?";
+        $query = "SELECT id_caisse,SUM(depense) as depense,dates 
+            FROM Mvt_Caisse
+            WHERE MONTH(dates) = ? 
+            AND YEAR(dates) = ?
+            GROUP BY id_caisse,dates";
         $result = $this->db->query($query, array($mois, $annee));
     }
+
     public function getMontantActuel(){
         $data=$this->db->get('Caisse')->row();
-        return $data['montant'];
+        return $data->montant;
     }
 } 
 ?>

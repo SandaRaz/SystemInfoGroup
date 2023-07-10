@@ -53,12 +53,12 @@ CREATE TABLE Demande_code(
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
-INSERT INTO Demande_code VALUES(1, 1, 0);
+INSERT INTO Demande_code VALUES(1, 1, '2023-07-10',5);
 
-SELECT c.id_client,c.nom,c.prenom,
+SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
 FROM client as c 
 JOIN Demande_code as dc 
-ON dc.id_code=c.id_client;
+ON dc.id_client=c.id_client;
 
 -------------------------------- ALIMENTAIRE-----------------------------------------------------
 
@@ -171,10 +171,15 @@ INSERT INTO Mvt_Caisse VALUES(null,1,5000,2000,'2023-07-07');
 INSERT INTO Mvt_Caisse VALUES(null,1,0,1500,'2023-07-08');
 INSERT INTO Mvt_Caisse VALUES(null,1,1500,500,'2023-07-09');
 INSERT INTO Mvt_Caisse VALUES(null,1,3000,0,'2023-07-10');
+INSERT INTO Mvt_Caisse VALUES(null,1,1000,0,'2023-07-10');
 
 SELECT *,(benefice - depense) as revenu
 FROM Mvt_Caisse 
 WHERE benefice > depense;
+
+SELECT id_caisse,SUM(benefice) as benefice,dates FROM Mvt_Caisse GROUP BY id_caisse,dates;
+SELECT id_caisse,SUM(depense) as depenses,dates FROM Mvt_Caisse GROUP BY id_caisse,dates;
+SELECT * FROM Mvt_Caisse;
 
 SELECT *,(depense - benefice) as depense
 FROM Mvt_Caisse 
