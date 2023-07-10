@@ -18,9 +18,4 @@ class B_Login_C extends CI_Controller {
         $this->load->view('B_home');
     }
 
-    public function test(){
-        $data=$this->B_Repas->getAllRepas();
-        return $this->load->view('haha',$data);
-    }
-
 }
