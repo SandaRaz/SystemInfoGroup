@@ -23,6 +23,7 @@ class B_Caisse extends CI_Model{
               AND YEAR(dates) = ?";
         $result = $this->db->query($query, array($mois, $annee));
     }
+
 }
 
 ?>

@@ -7,7 +7,10 @@ class B_Code extends CI_Models{
     }
 
     public function getListeDemande(){
-        
+        $query = "SELECT 
+        FROM client as c 
+        JOIN Demande_code as dc 
+        ON dc.id_code=c.id_client";
     }
 }
 
