@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+    $this->load->helper('url');
+?>
 
 <head>
     <meta charset="utf-8" />
@@ -9,9 +12,9 @@
     <meta name="author" content="" />
     <title>Choix login</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../../assets/css/styles.css" rel="stylesheet" />
-    <link href="../../assets/css/login.css" rel="stylesheet" />
-    <script src="../../assets/vendor/fontawesome/js/all.min.js"></script>
+    <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/login.css'); ?>" rel="stylesheet" />
+    <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
 </head>
 
 <body>
