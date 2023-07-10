@@ -27,6 +27,5 @@ class B_Caisse extends CI_Model{
         $data=$this->db->get('Caisse')->row();
         return $data['montant'];
     }
-
 } 
 ?>
