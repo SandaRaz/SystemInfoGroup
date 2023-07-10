@@ -145,6 +145,8 @@ CREATE TABLE Objectif(
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
+
+
 CREATE TABLE Historique_poids(
     id_client INT,
     poids DECIMAL(10,2),

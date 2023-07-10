@@ -1,6 +1,6 @@
 <?php 
 
-class B_MvtSport extends CI_Models{
+class B_MvtSport extends CI_Model{
     public function __construct(){
         parent::__construct();
         $this->load->database();
