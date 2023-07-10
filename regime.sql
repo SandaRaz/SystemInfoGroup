@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+create database regime;
+
+use regime;
+
+>>>>>>> Stashed changes
 -----------------------------------FRONT-OFFICE-----------------------------------
 CREATE TABLE Client(
     id_client INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
