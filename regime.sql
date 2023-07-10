@@ -39,7 +39,8 @@ CREATE TABLE Code(
 CREATE TABLE Demande_code(
     id_code INT,
     id_client INT,
-    etat INT    ---(0, 5)
+    dates TIMESTAMP,
+    etat INT,
     FOREIGN KEY (id_code) REFERENCES Code (id_code),
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
