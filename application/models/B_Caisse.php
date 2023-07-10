@@ -16,9 +16,9 @@ class B_Caisse extends CI_Model{
     }
 
     public function getListeDepense($mois, $annee){
-        $query = "SELECT *, (benefice - depense) as revenu
+        $query = "SELECT *, (benefice - depense) as depense
               FROM Mvt_Caisse 
-              WHERE benefice > depense 
+              WHERE benefice < depense 
               AND MONTH(dates) = ? 
               AND YEAR(dates) = ?";
         $result = $this->db->query($query, array($mois, $annee));
