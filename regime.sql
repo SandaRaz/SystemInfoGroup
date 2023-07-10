@@ -2,6 +2,8 @@ create database regime;
 
 use regime;
 
+
+-----------------------------------FRONT-OFFICE-----------------------------------
 create table Client(
     id_client int int not null primary key auto_increment,
     nom varchar,
@@ -45,11 +47,11 @@ create table demande_code(
 -------------------------------- ALIMENTAIRE-----------------------------------------------------
 
 create table Regime_Alimentaire(
-    id_regime int not null primary key auto_increment,
+    id_regime_Alime int not null primary key auto_increment,
     libelle varchar,
     action int,
     valeur decimal(10,2),
-    duree int
+    duree int,
 );
 
 create table plat(
@@ -103,9 +105,6 @@ create table sport(
     FOREIGN KEY (id_mvt) REFERENCES mvt_physique (id_mvt)
 );
 
-
-
-
 ----------------------------------------OBJECTIF---------------------------------------------
 create table objectif(
     id_objectif int not null primary key auto_increment,
@@ -113,5 +112,35 @@ create table objectif(
     poid_final decimal(10,2),
     date_debut date,
     date_fin date,
-    
+    id_regime_Alime int,
+    id_regime_sport int,
+    FOREIGN KEY (id_regime_Alime) REFERENCES Regime_Alimentaire (id_regime_Alime),
+    FOREIGN KEY (id_regime_sport) REFERENCES regime_sportive (id_regime_sport),    
 );
+
+create table historique_poid(
+    id_client int,
+    poids decimal(10,2),
+    dates date,
+    FOREIGN KEY (id_client) REFERENCES client (id_client),
+);
+
+-------------------------------------BACK-OFFICE----------------------------------------------
+
+create table Admin(
+    id_admin int not null primary key auto_increment,
+    mdp varchar
+);
+
+create table caise(
+    id_caisse int not null primary key auto_increment,
+    montant decimal(10,2)
+);
+create table mvt_Caisse(
+    id_mvt_caisse int not null auto_increment,
+    id_caisse int,
+    benefice decimal(10,2),
+    depense decimal(10,2),
+    dates date
+);
+
