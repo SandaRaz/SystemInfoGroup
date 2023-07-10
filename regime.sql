@@ -84,8 +84,7 @@ CREATE TABLE Regime_sportive(
     id_regime_sport INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     libelle VARCHAR(255),
     action INT,
-    valeur DECIMAL(10,2),
-    duree_Jour INT
+    valeur DECIMAL(10,2)
 );
 
 CREATE TABLE Mvt_physique(
@@ -129,6 +128,7 @@ CREATE TABLE Admin(
     id_admin INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     mdp VARCHAR(255)
 );
+INSERT INTO Admin VALUES(default, '8cb2237d0679ca88db6464eac60da96345513964');
 
 CREATE TABLE Caisse(
     id_caisse INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
