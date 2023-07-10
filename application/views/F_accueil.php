@@ -43,6 +43,7 @@
                         <div class="position-relative" style="display: flex;flex-wrap: wrap;justify-content: flex-end;">
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.8"
+<<<<<<< Updated upstream
                                     src="../../assets/img/a21.png" /></div>
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4"
@@ -50,6 +51,15 @@
                             <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25"
                                     src="../../assets/img/a21.png" /></div>
+=======
+                                    src="../../assets/img/sports.jpg" /></div>
+                            <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img
+                                    class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4"
+                                    src="../../assets/img/aliments.jpg" /></div>
+                            <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img
+                                    class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25"
+                                    src="../../assets/img/selflove.png" /></div>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
