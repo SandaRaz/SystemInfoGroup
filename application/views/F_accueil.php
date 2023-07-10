@@ -44,6 +44,7 @@
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.8"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                     src="../../assets/img/a21.png" /></div>
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4"
@@ -52,6 +53,8 @@
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25"
                                     src="../../assets/img/a21.png" /></div>
 =======
+=======
+>>>>>>> Stashed changes
                                     src="../../assets/img/sports.jpg" /></div>
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4"
@@ -59,6 +62,9 @@
                             <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25"
                                     src="../../assets/img/selflove.png" /></div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                         </div>
                     </div>

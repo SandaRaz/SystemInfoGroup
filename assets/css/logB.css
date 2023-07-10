@@ -1,0 +1,11 @@
+#log{
+    background-image: url('../..assets/img/bg.jpg');
+}
+#log2 {
+    /* background-image: url('../img/bg.jpg'); */
+    background-color: white;
+}
+
+body{
+    background-color: black;
+}
