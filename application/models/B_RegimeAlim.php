@@ -11,6 +11,10 @@ class B_RegimeAlim extends CI_Model {
         return $this->db->get('Regime_Alimentaire')->result_array();
     }
 
+    public function getRegimeAlimBy(){
+        
+    }
+
     public function getRegimeAlimbyId($id){
         $this->db->where('id_regime_Alime', $id);
         return $this->db->get('Regime_Alimentaire')->row_array();

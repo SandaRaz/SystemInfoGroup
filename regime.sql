@@ -105,8 +105,9 @@ CREATE TABLE Menu(
 );
 
 CREATE TABLE RegimeMenu(
+    id_reg_menu INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_reg_alime int REFERENCES Regime_Alimentaire(id_regime_alime),
-    id_menu int REFERENCES Menu(id_menu);
+    id_menu int REFERENCES Menu(id_menu)
 );
 
 ----------------------------------------SPORTIVE-----------------------------------------------
