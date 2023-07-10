@@ -8,8 +8,8 @@
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="assets/css/styles.css" rel="stylesheet" />
-        <script src="assets/vendor/fontawesome/js/all.min.js"></script>
+        <link href="../assets/css/styles.css" rel="stylesheet" />
+        <script src="../assets/vendor/fontawesome/js/all.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -252,13 +252,13 @@
                 </footer>
             </div>
         </div>
-        <script src="assets/vendor/jquery/jquery.min.js"></script>
-        <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
-        <script src="assets/vendor/charts/Chart.js"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="assets/vendor/datatables/datatables.min.js"></script>
-        <script src="assets/js/datatables-simple-demo.js"></script>
+        <script src="../assets/vendor/jquery/jquery.min.js"></script>
+        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/scripts.js"></script>
+        <script src="../assets/vendor/charts/Chart.js"></script>
+        <script src="../assets/demo/chart-area-demo.js"></script>
+        <script src="../assets/demo/chart-bar-demo.js"></script>
+        <script src="../assets/vendor/datatables/datatables.min.js"></script>
+        <script src="../assets/js/datatables-simple-demo.js"></script>
     </body>
 </html>
