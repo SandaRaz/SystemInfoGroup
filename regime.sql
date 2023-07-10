@@ -1,3 +1,7 @@
+create database regime;
+
+use regime;
+
 -----------------------------------FRONT-OFFICE-----------------------------------
 CREATE TABLE Client(
     id_client INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -35,6 +39,7 @@ CREATE TABLE Code(
 CREATE TABLE Demande_code(
     id_code INT,
     id_client INT,
+    etat INT    ---(0, 5)
     FOREIGN KEY (id_code) REFERENCES Code (id_code),
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
@@ -144,7 +149,6 @@ CREATE TABLE Mvt_Caisse(
     FOREIGN KEY (id_caisse) REFERENCES Caisse (id_caisse),
     PRIMARY KEY (id_mvt_caisse)
 );
-
 INSERT INTO Caisse VALUES(1, 10000);
 
 INSERT INTO Mvt_Caisse VALUES(null,1,5000,2000,'2023-07-07');
