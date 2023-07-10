@@ -9,5 +9,7 @@
             $data=$this->db->get('Caisse')->row();
             return $data['montant'];
         }
+
+        
     }
 ?>
