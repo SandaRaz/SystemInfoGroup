@@ -148,3 +148,4 @@ CREATE TABLE Mvt_Caisse(
     FOREIGN KEY (id_caisse) REFERENCES Caisse (id_caisse),
     PRIMARY KEY (id_mvt_caisse)
 );
+SELECT count(id_client) as nb From Client;
