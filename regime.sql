@@ -52,6 +52,7 @@ create table Regime_Alimentaire(
     action int,
     valeur decimal(10,2),
     duree int,
+    prix decimal(10,2)
 );
 
 create table plat(
@@ -141,6 +142,7 @@ create table mvt_Caisse(
     id_caisse int,
     benefice decimal(10,2),
     depense decimal(10,2),
-    dates date
+    dates date,
+    FOREIGN KEY (id_caisse) REFERENCES caise (id_caisse)
 );
 
