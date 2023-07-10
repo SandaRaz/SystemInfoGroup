@@ -10,11 +10,25 @@ class F_Login_C extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('B_login');
+		$this->load->view('F_login');
 	}
 
     public function authentified(){
-        $this->load->view('B_home');
+        $this->load->model('F_Client');
+        $this->load->helper('url');
+
+        $email = $this->input->post('email');
+        $mdp = $this->input->post('password');
+
+        $valid = $this->F_Client->validLogin($email, $mdp);
+
+        if($valid){
+            $this->load->view('F_accueil');
+        }else{
+            echo "Noooooooooooooo";
+        }
+
+        
     }
 
 }

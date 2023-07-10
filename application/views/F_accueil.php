@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php $this->load->helper('url') ?>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,8 +9,8 @@
     <meta name="author" content="" />
     <title>Accueil</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../assets/css/styles.css" rel="stylesheet" />
-    <script src="../assets/vendor/fontawesome/js/all.min.js"></script>
+    <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+    <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
 </head>
     <body>
         <nav id="mainNav" class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" style="background-color: lightseagreen;">
@@ -43,29 +43,20 @@
                         <div class="position-relative" style="display: flex;flex-wrap: wrap;justify-content: flex-end;">
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.8"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                                    src="../../assets/img/a21.png" /></div>
+                                    src="<?php echo base_url('assets/img/a21.png'); ?>" /></div>
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4"
-                                    src="../../assets/img/a21.png" /></div>
+                                    src="<?php echo base_url('assets/img/a21.png'); ?>" /></div>
                             <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25"
-                                    src="../../assets/img/a21.png" /></div>
-=======
-=======
->>>>>>> Stashed changes
-                                    src="../../assets/img/sports.jpg" /></div>
+                                    src="<?php echo base_url('assets/img/sports.jpg'); ?>" /></div>
                             <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4"
-                                    src="../../assets/img/aliments.jpg" /></div>
+                                    src="<?php echo base_url('assets/img/aliment.jpg'); ?>" /></div>
                             <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img
                                     class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25"
-                                    src="../../assets/img/selflove.png" /></div>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+                                    src="<?php echo base_url('assets/img/selflove.jpg'); ?>" /></div>
+
                         </div>
                     </div>
                 </div>

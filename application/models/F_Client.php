@@ -7,13 +7,13 @@ class F_Client extends CI_Model{
     }
 
     public function validLogin($mailnom,$mdp){
-        $query1 = $this->db->get_where('client', array('email'=>$mailnom , 'mdp'=>$mdp));
+        $query1 = $this->db->get_where('client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
         $result1 = $query1->row();
 
-        $query2 = $this->db->get_where('client', array('nom'=>$mailnom , 'mdp'=>$mdp));
+        $query2 = $this->db->get_where('client', array('nom'=>$mailnom , 'mdp'=>sha1($mdp)));
         $result2 = $query2->row();
-
-        if(count($result1) <= 0 && count($result2) <= 0){
+        
+        if($result1 == null && $result2 == null){
             return false;
         }else{
             return true;
