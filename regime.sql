@@ -144,3 +144,18 @@ CREATE TABLE Mvt_Caisse(
     FOREIGN KEY (id_caisse) REFERENCES Caisse (id_caisse),
     PRIMARY KEY (id_mvt_caisse)
 );
+
+INSERT INTO Caisse VALUES(1, 10000);
+
+INSERT INTO Mvt_Caisse VALUES(null,1,5000,2000,'2023-07-07');
+INSERT INTO Mvt_Caisse VALUES(null,1,0,1500,'2023-07-08');
+INSERT INTO Mvt_Caisse VALUES(null,1,1500,500,'2023-07-09');
+INSERT INTO Mvt_Caisse VALUES(null,1,3000,0,'2023-07-10');
+
+SELECT *,(benefice - depense) as revenu
+FROM Mvt_Caisse 
+WHERE benefice > depense;
+
+SELECT *,(depense - benefice) as depense
+FROM Mvt_Caisse 
+WHERE benefice < depense;
