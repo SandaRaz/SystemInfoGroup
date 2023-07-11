@@ -39,6 +39,7 @@
                                         type="submit">Login</button></div>
                             </form>
                             <p class="text-muted">Pas de compte? <a href="">S'inscrire</a></p>
+                            <a href="<?php echo base_url('F_Login_C/retour') ?>">Retour</a>
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                 <div class="card mb-5">
-                    <a href="<?php echo base_url('F_Login_C'); ?>">
+                    <a href="<?php echo base_url('F_Login_C/connection'); ?>">
                     <div class="card-body d-flex flex-column align-items-center">
                         <h2>Client</h2>
                     </div>
@@ -38,7 +38,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div class="card mb-5">
-                        <a href="<?php echo base_url('B_Login_C'); ?>">
+                        <a href="<?php echo base_url('B_Login_C/connection'); ?>">
                         <div class="card-body d-flex flex-column align-items-center">
                             <h2>Administrateur</h2>
                         </div>
