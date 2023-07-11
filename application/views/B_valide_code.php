@@ -1,6 +1,4 @@
-<?php
-    $this->load->helper('url');
-?>
+<?php $this->load->helper('url'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Statistiques</title>
+    <title>Ajout Regime</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
-        <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
+    <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+    <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -35,6 +33,7 @@
                 </li>
             </ul>
     </nav>
+
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -63,18 +62,53 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
+                <section class="section">
                     <div class="row">
-                        <div class="col-xl-12">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <h2>Caisse : ...</h2>
+                        <div class="col-lg-12">
+                
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ajout Plat:</h5>
+                                </br>
+                                    <form id="ajoutPlat">
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputText" name="nom">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Categorie</label>
+                                            <div class="col-sm-10">
+                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="categorie">
+                                                    <option value="1">Entree</option>
+                                                    <option value="2">Resistance</option>
+                                                    <option value="3">Dessert</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label">Calorie apporte</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputPassword" name="calorie">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary" style="margin-left: 500px;">Valider</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </form><!-- End Horizontal Form -->
+                
                                 </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                             </div>
+                
                         </div>
+                        
                     </div>
                 </div>
+            </section>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -89,15 +123,17 @@
                 </div>
             </footer>
         </div>
-    </div>
-        <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/scripts.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/vendor/charts/Chart.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/demo/chart-area-demo.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/demo/chart-bar-demo.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/scripts.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/charts/Chart.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-bar-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/ajax/B_RegimeAlim.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/ajax/regime_aliment.js'); ?>"></script>
+</body>
 </body>
 
 </html>

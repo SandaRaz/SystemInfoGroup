@@ -117,6 +117,12 @@
         public function page_chart(){
 
             $this->load->view('B_statistique');
-        }    
+        } 
+
+        public function Valide(){
+
+            $this->load->view('B_valide_code');
+        }
+        
     }
 ?>
