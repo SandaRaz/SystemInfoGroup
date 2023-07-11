@@ -103,5 +103,20 @@
             }
             echo json_encode($err);
         }
+
+        public function page(){
+
+            $this->load->view('B_regime_alimentaire');
+        }
+
+        public function page2(){
+
+            $this->load->view('B_regime_sportif');
+        }
+
+        public function page_chart(){
+
+            $this->load->view('B_statistique');
+        }
     }
 ?>
