@@ -49,7 +49,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime alimentaire
                         </a>
-                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/regimeSportive'); ?>">
+                        <a class="nav-link" href="<?php echo base_url('B_RegimeSport_C/regimeSportif'); ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime sportive
                         </a>
