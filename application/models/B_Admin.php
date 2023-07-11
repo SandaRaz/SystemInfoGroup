@@ -8,7 +8,7 @@ class B_Admin extends CI_Model{
     }
 
     public function validLogin($mdp){
-        $query = $this->db->get_where('admin', array('mdp' => sha1($mdp)));
+        $query = $this->db->get_where('Admin', array('mdp' => sha1($mdp)));
         $result = $query->row();
 
 

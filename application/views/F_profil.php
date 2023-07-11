@@ -192,15 +192,22 @@
                                 </div>
 
                                 <div class="tab-pane fade ajout-code pt-3" id="ajout-code">
-                                    <form action="/" method="POST">
+                                    <form action="<?php echo base_url('F_Code_C/demandeCode'); ?>" method="POST">
                                         <input type="hidden" name="idclient" value="<?php echo $client->id_client; ?>">
                                         <div class="row mb-3">
                                             <label for="Email" class="col-md-4 col-lg-3 col-form-label">Code</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="code-credit" type="text" class="form-control" id="poids-farany" placeholder="entrez votre code de credit">
+                                                <input name="credit" type="text" class="form-control" id="poids-farany" placeholder="entrez votre code de credit">
+                                                <input type="hidden" name="id_client">
                                             </div>
                                             <div class="col-md-8 col-lg-9">
+                                                
                                                 <h5>Ancien code</h5>
+                                                <?php 
+                                                    foreach ($codes as $code) {
+                                                        ?><p><?php echo $code['code']; ?></p><?php
+                                                    }
+                                                ?>
                                                 <div style="max-height: 200px; border: 1px solid black; overflow-y: auto">
                                                 </div>
                                             </div>

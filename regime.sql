@@ -1,7 +1,7 @@
 create database regime;
 
 use regime;
-
+SELECT*FROM Code;
 -----------------------------------FRONT-OFFICE-----------------------------------
 CREATE TABLE Client(
     id_client INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -60,6 +60,7 @@ INSERT INTO Code VALUES(null, '1234567', 80000);-----------------
 INSERT INTO Code VALUES(null, '1234', 50000);
 INSERT INTO Code VALUES(null, '7654321', 90000);
 
+SELECT*FROM Code;
 CREATE TABLE Demande_code(
     id_code INT,
     id_client INT,
@@ -70,12 +71,14 @@ CREATE TABLE Demande_code(
 );
 
 INSERT INTO Demande_code VALUES(1, 1, '2023-07-10',5);
+INSERT INTO Demande_code VALUES(1, 1, '2023-07-10',10);
 
 SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
 FROM Client as c 
 JOIN Demande_code as dc 
 ON dc.id_client=c.id_client;
 
+SELECT*FROM Demande_code;
 -------------------------------- ALIMENTAIRE-----------------------------------------------------
 
 CREATE TABLE Regime_Alimentaire(
@@ -127,6 +130,7 @@ CREATE TABLE Repas(
     id_Dessert INT,
     nom VARCHAR(255)
 );
+
 
 INSERT INTO Repas VALUES(null, 1, 0, 6, 15, "Repas1");
 INSERT INTO Repas VALUES(null, 5, 1, 7, 0, "Repas2");

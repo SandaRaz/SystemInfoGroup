@@ -1,6 +1,6 @@
 <?php 
 
-class B_Code extends CI_Models{
+class B_Code extends CI_Model{
 
     public function __construct(){
         parent::__construct();
@@ -17,14 +17,24 @@ class B_Code extends CI_Models{
         return $query->result_array();
     }
     
-    public function getListeCodeDejaUtilise(){
-        $this->db->select('c.id_code,c.code,c.valeur,dc.id_client,dc.dates,dc.etat')
-                 ->from('code as c')
-                 ->join('Demande_code as dc', 'on')
+    public function getListeCodeDejaUtilise() {
+        $this->db->select('c.id_code, c.code, c.valeur, dc.id_client, dc.dates, dc.etat')
+                 ->from('Code as c')
+                 ->join('Demande_code as dc', 'c.id_code = dc.id_code')
                  ->where('dc.etat', 10);
         $query = $this->db->get();
+        
         return $query->result_array();
-    }
+    } 
+
+    public function getListeCodeExpirer() {
+        $this->db->select('c.id_code, c.code, c.valeur, dc.id_client, dc.dates, dc.etat')
+                 ->from('Code as c')
+                 ->join('Demande_code as dc', 'c.id_code = dc.id_code')
+                 ->where('dc.etat', 0);
+        $query = $this->db->get();
+        return $query->result_array();
+    } 
 
     public function validerCode($id_code, $id_client) {
         $this->db->where('id_code', $id_code)

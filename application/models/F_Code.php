@@ -13,5 +13,14 @@
         public function demandeCode($data){
             return $this->db->insert('Demande_code', $data);
         }
+
+        public function getCodeById($id){
+            $this->db->where('id_code',$id);
+            return $this->db->get('Code')->result_array();
+        }
+        public function getAllCode(){
+            return $this->db->get('Code')->result_array();
+        }
+
     }
 ?>
