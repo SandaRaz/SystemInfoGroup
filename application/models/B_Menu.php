@@ -30,6 +30,11 @@ class B_Menu extends CI_Model{
         return $this->db->delte('menu');
     }
 
+        public function getidbynom($nom){
+        $this->db->where('nom_repas', $nom);
+        return $this->db->get('Repas')->result_array();
+    }
+
 }
 
 ?>

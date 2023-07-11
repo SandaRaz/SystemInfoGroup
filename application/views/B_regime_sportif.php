@@ -48,7 +48,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime alimentaire
                         </a>
-                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/regimeSportive'); ?>">
+                        <a class="nav-link" href="<?php echo base_url('B_RegimeSport_C/regimeSportif'); ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime sportive
                         </a>
@@ -66,11 +66,11 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Ajout Mouvement:</h5>
                                     </br>
-                                    <form>
+                                    <form id="ajoutmvt">
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputText">
+                                                <input type="text" class="form-control" id="inputText" name="nom">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -94,18 +94,18 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Ajout Regime Sportive:</h5>
                                     </br>
-                                    <form>
+                                    <form id="ajoutregimeS">
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputText">
+                                                <input type="text" class="form-control" id="inputText" name="nomS">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Action</label>
                                             <div class="col-sm-10">
                                                 <select
-                                                    style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
+                                                    style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="action">
                                                     <option>-1</option>
                                                     <option>1</option>
                                                 </select>
@@ -114,17 +114,19 @@
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Benefice</label>
                                             <div class="col-sm-10">
-                                                <select
-                                                    style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                    <option>1-2-3-4.......</option>
-                                                </select>
+                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="benefice">
+                                            <?php for ($i=1; $i <=10 ; $i++) { ?>
+                                                <option> <?php echo $i ; ?> </option>
+                                            <?php } ?>
+                                            </select>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label">Duree</label>
-                                            <select
-                                                style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                <option>1-2-3-4.........</option>
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="duree">
+                                            <?php for ($i=1; $i <=30 ; $i++) { ?>
+                                                <option> <?php echo $i ; ?> </option>
+                                            <?php } ?>
                                             </select>
                                         </div>
                                         <div class="row mb-3">
@@ -148,28 +150,38 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Sports:</h5>
                                     </br>
-                                    <form>
+                                    <form id="ajoutSport">
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Regime Sportif</label>
                                             <div class="col-sm-10">
-                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                    <option>SELECT * FROM REGIME SPORTIF</option>
+                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="sport">
+                                                    <option value ="0">aucun</option>
+                                                    <?php
+                                                foreach ($regS as $s) : ?> 
+                                                    <option value="<?php echo $s->id_regime_sport; ?>"><?php echo $s->libelle; ?></option> 
+                                            <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Mouvement</label>
                                             <div class="col-sm-10">
-                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                    <option>SELECT * FROM MOUVEMENT</option>
+                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="mvt">
+                                                    <option value ="0">aucun</option>
+                                                    <?php
+                                                foreach ($mvt as $s) : ?> 
+                                                    <option value="<?php echo $s->id_mvt; ?>"><?php echo $s->nom; ?></option> 
+                                            <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Duree (minute)</label>
                                             <div class="col-sm-10">
-                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                    <option>1-2-3-4.......</option>
+                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="duree">
+                                                    <?php for ($i=1; $i <=30 ; $i++) { ?>
+                                                <option> <?php echo $i ; ?> </option>
+                                            <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -209,6 +221,7 @@
     <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/ajax/B_RegimeAlim.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/ajax/regime_aliment.js'); ?>"></script>
 </body>
 
 </html>
