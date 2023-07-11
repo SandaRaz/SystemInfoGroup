@@ -47,7 +47,8 @@ INSERT INTO Code VALUES(null, '7654321', 90000);
 CREATE TABLE Demande_code(
     id_code INT,
     id_client INT,
-    etat INT,    ---(0, 5)
+    dates TIMESTAMP,
+    etat INT,
     FOREIGN KEY (id_code) REFERENCES Code (id_code),
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
@@ -87,8 +88,6 @@ CREATE TABLE Repas(
     FOREIGN KEY (id_Resistance) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Dessert) REFERENCES Plat (id_plat)
 );
-
-SELECT*FROM Repas;
 
 CREATE TABLE Menu(
     id_menu INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -166,4 +165,24 @@ CREATE TABLE Mvt_Caisse(
     FOREIGN KEY (id_caisse) REFERENCES Caisse (id_caisse),
     PRIMARY KEY (id_mvt_caisse)
 );
-SELECT count(id_client) as nb From Client;
+INSERT INTO Caisse VALUES(1, 10000);
+
+INSERT INTO Mvt_Caisse VALUES(null,1,5000,2000,'2023-07-07');
+INSERT INTO Mvt_Caisse VALUES(null,1,0,1500,'2023-07-08');
+INSERT INTO Mvt_Caisse VALUES(null,1,1500,500,'2023-07-09');
+INSERT INTO Mvt_Caisse VALUES(null,1,3000,0,'2023-07-10');
+
+SELECT *,(benefice - depense) as revenu
+FROM Mvt_Caisse 
+WHERE benefice > depense;
+
+SELECT *,(depense - benefice) as depense
+FROM Mvt_Caisse 
+WHERE benefice < depense;
+
+
+SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
+FROM Client as c
+JOIN Demande_code as dc
+ON c.id_client=c.id_client;
+
