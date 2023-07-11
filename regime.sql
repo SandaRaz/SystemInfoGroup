@@ -174,6 +174,19 @@ INSERT INTO RegimeMenu VALUES(null, 4, 9);
 INSERT INTO RegimeMenu VALUES(null, 4, 1);
 INSERT INTO RegimeMenu VALUES(null, 5, 2);
 
+
+SELECT rm.id_reg_alime,mn. FROM RegimeMenu AS rm
+JOIN Menu AS mn ON mn.id_menu = rm.id_menu
+JOIN Repas AS rp ON rp.id_repas = mn.id_Entrer
+WHERE id_reg_alime = 1;
+
+SELECT rm.id_reg_alime, mn.*
+FROM RegimeMenu AS rm
+JOIN Menu AS mn ON mn.id_menu = rm.id_menu
+WHERE id_reg_alime = 1;
+
+
+SELECT * FROM Repas;
 ----------------------------------------SPORTIVE-----------------------------------------------
 CREATE TABLE Regime_sportive(
     id_regime_sport INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
