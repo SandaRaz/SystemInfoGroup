@@ -1,8 +1,9 @@
+
 create database regime;
 
 use regime;
 SELECT*FROM Code;
------------------------------------FRONT-OFFICE-----------------------------------
+-----------------------FRONT-OFFICE-----------------------------------
 CREATE TABLE Client(
     id_client INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255),
@@ -20,7 +21,9 @@ CREATE TABLE informations_de_sante(
     taille DECIMAL(10,2),
     poids DECIMAL(10,2),
     dates DATE,
-    FOREIGN KEY (id_client) REFERENCES Client (id_client)
+    taille DECIMAL(10,2),
+    email VARCHAR(255),
+    mdp VARCHAR(255)
 );
 DROP TABLE information_de_sante;
 INSERT INTO information_de_sante (id_client, taille, poids, dates) VALUES (1, 190, 50, '2023-07-11');
@@ -66,6 +69,9 @@ CREATE TABLE Demande_code(
     id_client INT,
     dates TIMESTAMP,
     etat INT,
+CREATE TABLE Demande_code(
+    id_code INT,
+    id_client INT,
     FOREIGN KEY (id_code) REFERENCES Code (id_code),
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
@@ -95,14 +101,14 @@ INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.3, 1, 2000
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.05, 1, 5000);
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.1, 1, 10000);
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.2, 1, 30000);
-
+  
 CREATE TABLE Plat(
     id_plat INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(255),
     categorie INT,
     calorie DECIMAL(10,2)
 );
-
+  
 INSERT INTO Plat (nom, categorie, calorie) VALUES ('Salade César', 1, 250.75);
 INSERT INTO Plat (nom, categorie, calorie) VALUES ('Soupe à l\'oignon', 1, 180.50);
 INSERT INTO Plat (nom, categorie, calorie) VALUES ('Bruschetta aux tomates', 1, 220.25);
@@ -120,7 +126,6 @@ INSERT INTO Plat (nom, categorie, calorie) VALUES ('Tiramisu', 3, 320.60);
 INSERT INTO Plat (nom, categorie, calorie) VALUES ('Mousse au chocolat', 3, 250.35);
 INSERT INTO Plat (nom, categorie, calorie) VALUES ('Panna cotta aux fruits rouges', 3, 290.80);
 INSERT INTO Plat (nom, categorie, calorie) VALUES ('Tarte au citron meringuée', 3, 350.50);
-
 
 CREATE TABLE Repas(
     id_repas INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -166,6 +171,17 @@ CREATE TABLE RegimeMenu(
     id_menu int REFERENCES Menu(id_menu)
 );
 
+CREATE TABLE Menu(
+    id_menu INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    libelle VARCHAR(255),
+    id_Pdeg INT,
+    id_Deg INT,
+    id_diner INT,
+    FOREIGN KEY (id_Pdeg) REFERENCES Repas (id_repas),
+    FOREIGN KEY (id_Deg) REFERENCES Repas (id_repas),
+    FOREIGN KEY (id_diner) REFERENCES Repas (id_repas)
+);
+
 INSERT INTO RegimeMenu VALUES(null, 1, 1);
 INSERT INTO RegimeMenu VALUES(null, 1, 2);
 INSERT INTO RegimeMenu VALUES(null, 1, 3);
@@ -206,11 +222,16 @@ INSERT INTO Regime_sportive VALUES(null,'Mampihena',-1,0.2);
 INSERT INTO Regime_sportive VALUES(null,'Mampihena be',-1,0.5);
 INSERT INTO Regime_sportive VALUES(null,'Mampitombo',1,0.2);
 
+    valeur DECIMAL(10,2),
+    duree_Jour INT
+);
+
 CREATE TABLE Mvt_physique(
     id_mvt INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
     PRIMARY KEY (id_mvt)
 );
+
 
 INSERT INTO Mvt_physique VALUES(null, 'Pompe');
 INSERT INTO Mvt_physique VALUES(null, 'Squat');
@@ -261,6 +282,7 @@ CREATE TABLE Historique_poids(
 );
 
 -------------------------------------BACK-OFFICE----------------------------------------------
+
 CREATE TABLE Admin(
     id_admin INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     mdp VARCHAR(255)
@@ -313,3 +335,12 @@ SELECT * FROM Repas WHERE id_repas IN (SELECT mn.id_Pdeg FROM RegimeMenu AS rm
 
 SELECT*FROM `Objectif`;
 
+CREATE TABLE Mvt_Caisse(
+    id_mvt_caisse INT NOT NULL AUTO_INCREMENT,
+    id_caisse INT,
+    benefice DECIMAL(10,2),
+    depense DECIMAL(10,2),
+    dates DATE,
+    FOREIGN KEY (id_caisse) REFERENCES Caisse (id_caisse),
+    PRIMARY KEY (id_mvt_caisse)
+);
