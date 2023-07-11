@@ -37,6 +37,10 @@ class B_RegimeAlim extends CI_Model {
     public function insererRegAlim($data){
         $this->db->insert('RegimeMenu', $data);
     }
+
+    public funciton regimeDetaillee(){
+        
+    }
     
 }
 
