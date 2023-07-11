@@ -62,7 +62,7 @@
                                         <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
-    
+                                        <a href="<?php echo base_url('B_Login_C/retour') ?>">Retour</a>
                                 </div>
                             </div>
                         </div>
