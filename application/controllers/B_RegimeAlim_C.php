@@ -117,6 +117,6 @@
         public function page_chart(){
 
             $this->load->view('B_statistique');
-        }
+        }    
     }
 ?>

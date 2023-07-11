@@ -20,7 +20,6 @@
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto" style="height: 100px;">
                     
-
                 </div>
             </div>
             <div class="row d-flex justify-content-center">

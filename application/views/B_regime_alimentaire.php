@@ -33,6 +33,7 @@
                 </li>
             </ul>
     </nav>
+
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -115,7 +116,7 @@
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Type</label>
                                         <div class="col-sm-10">
-                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="type">
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="types">
                                                 <option value="1">Petit Dejeuner</option>
                                                 <option value="5">Dejeuner</option>
                                                 <option value="10">Diner</option>
@@ -158,11 +159,18 @@
                                         </select>
                                     </div>
                                     <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputText" name="nom_repas">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
                                         <div class="col-sm-10">
                                             <button type="submit" class="btn btn-primary"
                                                 style="margin-left: 500px;">Valider</button>
                                         </div>
                                     </div>
+                                    
                                 </form>
                             </div>
                         </div>
@@ -306,6 +314,8 @@
     <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/ajax/B_RegimeAlim.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/ajax/regime_aliment.js'); ?>"></script>
+</body>
 </body>
 
 </html>

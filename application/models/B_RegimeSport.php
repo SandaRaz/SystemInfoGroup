@@ -27,6 +27,19 @@ class B_RegimeSport extends CI_Model{
         $query = $this->db->get_where('regime_sportive', array('id_regime_sport'=>$id_regime_sport));
         return $query->row();
     }
+
+    public function getIdRegimeSportbyPoids($id_client, $poidInitial, $poidFinal) {
+        $difference = $poidFinal - $poidInitial;
+        $action = ($difference < 0) ? -1 : 1;
+    
+        $regimes = $this->getRegimeSportByAction($action);
+        $indiceAlea = rand(0, count($regimes) - 1);
+        $regime = $regimes[$indiceAlea];
+    
+        return $regime;
+    }
+    
+
 }
 
 ?>
