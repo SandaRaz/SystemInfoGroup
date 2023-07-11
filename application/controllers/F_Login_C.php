@@ -70,7 +70,7 @@ class F_Login_C extends CI_Controller {
                 'date_de_naissance'=>$this->input->post("datenaissance"),
                 'genre'=>$this->input->post("genre"),
                 'email'=>$this->input->post("email"),
-                'mdp'=>$this->input->post("mdp")
+                'mdp'=>sha1($this->input->post("mdp"))
             );
             $this->session->set_userdata('tempinscridata', $data);
             $this->load->view('F_inscri_info_sante');
