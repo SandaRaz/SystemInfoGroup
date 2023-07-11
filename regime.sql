@@ -15,14 +15,14 @@ CREATE TABLE Client(
 
 INSERT INTO Client VALUES(null, 'Raz', 'Sanda', '1999-12-31', 'M','sanda@gmail.com', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2');
 
-CREATE TABLE information_de_sante(
+CREATE TABLE informations_de_sante(
     id_client INT,
     taille DECIMAL(10,2),
     poids DECIMAL(10,2),
     dates DATE,
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
-
+DROP TABLE information_de_sante;
 INSERT INTO information_de_sante (id_client, taille, poids, dates) VALUES (1, 190, 50, '2023-07-11');
 
 SELECT c.id_client, c.nom, c.prenom, c.date_de_naissance, c.genre, c.taille, c.email, ids.poids, MAX(ids.dates) AS dates
