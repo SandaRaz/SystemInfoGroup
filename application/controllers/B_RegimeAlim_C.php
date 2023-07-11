@@ -9,14 +9,21 @@
 
         public function regimeAlimentaire() {
             $this->load->model('B_Plat');
+            $this->load->model('B_Repas');
         
             $entrer = $this->B_Plat->getAllEntrer();
             $resistance = $this->B_Plat->getAllResistance();
             $dessert = $this->B_Plat->getAllDessert();
+            $ptdej = $this->B_Repas->getPDejeuner();
+            $dej = $this->B_Repas->getDejeuner();
+            $din = $this->B_Repas->getDinner();
         
             $data['entrer'] = $entrer;
             $data['resistance'] = $resistance;
             $data['dessert'] = $dessert;
+            $data['ptdej'] = $ptdej;
+            $data['dej'] = $dej;
+            $data['din'] = $din;
         
             $this->load->view('B_regime_alimentaire', $data);
         }
@@ -80,6 +87,32 @@
             echo json_encode($err);
         }
         
+        public function ajoutMenu() {
+            $this->load->model('B_Menu');
+        
+            $id_pdej = $this->input->post('idpdej');
+            $id_dej = $this->input->post('iddej');
+            $id_din = $this->input->post('iddin');
+            $nom = $this->input->post('nom_menu');
+        
+            $err = array();
+        
+            
+                $data = array(
+                    'id_menu' => null,
+                    'libelle' => $nom,
+                    'id_Pdeg' => $id_pdej,
+                    'id_Deg' => $id_dej,
+                    'id_Diner' => $id_din
+                );
+        
+                $query_result = $this->B_Menu->createMenu($data);
+                if (!$query_result) {
+                    $err['error'] = $this->db->error();
+                }
+            echo json_encode($err);
+        }
+
         public function ajoutRegime(){
 
             $this->load->model('B_RegimeAlim');

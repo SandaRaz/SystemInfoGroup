@@ -24,6 +24,7 @@ class B_RegimeSport extends CI_Model{
         $query = $this->db->get_where('regime_sportive', array('id_regime_sport'=>$id_regime_sport));
         return $query->row();
     }
+
 }
 
 ?>

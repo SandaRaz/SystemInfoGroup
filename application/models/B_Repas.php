@@ -26,7 +26,7 @@ class B_Repas extends CI_Model{
 
     public function deleteRepas($id){
         $this->db->where('id_repas', $id);
-        return $this->db->delte('Repas');
+        return $this->db->delete('Repas');
     }
 
     public function getPDejeuner(){
@@ -43,6 +43,8 @@ class B_Repas extends CI_Model{
         $this->db->where('types', 5);
         return $this->db->get('Repas')->result_array();
     }
+
+
 
 }
 
