@@ -104,6 +104,7 @@ CREATE TABLE Repas(
     id_Entrer INT,
     id_Resistance INT not null,
     id_Dessert INT not null,
+    nom_repas VARCHAR(50),
     FOREIGN KEY (id_Entrer) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Resistance) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Dessert) REFERENCES Plat (id_plat)
