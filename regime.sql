@@ -101,8 +101,8 @@ CREATE TABLE Repas(
     id_repas INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     types INT,
     id_Entrer INT,
-    id_Resistance INT,
-    id_Dessert INT,
+    id_Resistance INT not null,
+    id_Dessert INT not null,
     FOREIGN KEY (id_Entrer) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Resistance) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Dessert) REFERENCES Plat (id_plat)
@@ -202,3 +202,10 @@ SELECT * FROM Mvt_Caisse;
 SELECT *,(depense - benefice) as depense
 FROM Mvt_Caisse 
 WHERE benefice < depense;
+
+
+SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
+FROM Client as c
+JOIN Demande_code as dc
+ON c.id_client=c.id_client;
+

@@ -29,6 +29,21 @@ class B_Repas extends CI_Model{
         return $this->db->delte('Repas');
     }
 
+    public function getPDejeuner(){
+        $this->db->where('types', 1);
+        return $this->db->get('Repas')->result_array();
+    }
+
+    public function getDejeuner(){
+        $this->db->where('types', 3);
+        return $this->db->get('Repas')->result_array();
+    }
+
+    public function getDinner(){
+        $this->db->where('types', 5);
+        return $this->db->get('Repas')->result_array();
+    }
+
 }
 
 ?>

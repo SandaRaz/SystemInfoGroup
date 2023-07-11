@@ -6,6 +6,11 @@ class B_Caisse extends CI_Model{
         $this->load->database();
     }
 
+    public function getMontantActuel(){
+        $data=$this->db->get('Caisse')->row();
+        return $data['montant'];
+    }
+
     public function getListeRevenu($mois, $annee){
         $query = "SELECT id_caisse,SUM(benefice) as benefice,dates 
             FROM Mvt_Caisse
@@ -24,11 +29,6 @@ class B_Caisse extends CI_Model{
             GROUP BY id_caisse,dates";
         $results = $this->db->query($query, array($mois, $annee));
         return $results;
-    }
-
-    public function getMontantActuel(){
-        $data=$this->db->get('Caisse')->row();
-        return $data->montant;
     }
 } 
 ?>

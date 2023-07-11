@@ -64,6 +64,7 @@ class F_Client extends CI_Model{
         $result=$this->db->query($query);
         return $result->nb;
     }
+
 }
 
 ?>
