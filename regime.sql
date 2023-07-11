@@ -87,9 +87,11 @@ CREATE TABLE Regime_Alimentaire(
     prix DECIMAL(10,2)
 );
 
-
-INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.2, 1, 15000);
+INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.5, 1, 55000);
+INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.3, 1, 20000);
+INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.05, 1, 5000);
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.1, 1, 10000);
+INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.2, 1, 30000);
 
 CREATE TABLE Plat(
     id_plat INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -98,34 +100,79 @@ CREATE TABLE Plat(
     calorie DECIMAL(10,2)
 );
 
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Salade César', 1, 250.75);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Soupe à l\'oignon', 1, 180.50);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Bruschetta aux tomates', 1, 220.25);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Carpaccio de boeuf', 1, 280.80);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Pâté de foie gras', 1, 320.40);
+
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Filet de saumon grillé', 2, 380.90);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Steak au poivre', 2, 450.60);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Poulet tikka masala', 2, 420.25);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Raviolis aux champignons', 2, 320.75);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Magret de canard à l\'orange', 2, 480.30);
+
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Crème brûlée', 3, 280.40);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Tiramisu', 3, 320.60);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Mousse au chocolat', 3, 250.35);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Panna cotta aux fruits rouges', 3, 290.80);
+INSERT INTO Plat (nom, categorie, calorie) VALUES ('Tarte au citron meringuée', 3, 350.50);
+
+
 CREATE TABLE Repas(
     id_repas INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     types INT,
     id_Entrer INT,
-    id_Resistance INT not null,
-    id_Dessert INT not null,
-    nom_repas VARCHAR(50),
-    FOREIGN KEY (id_Entrer) REFERENCES Plat (id_plat),
-    FOREIGN KEY (id_Resistance) REFERENCES Plat (id_plat),
-    FOREIGN KEY (id_Dessert) REFERENCES Plat (id_plat)
+    id_Resistance INT,
+    id_Dessert INT,
+    nom VARCHAR(255)
 );
+
+INSERT INTO Repas VALUES(null, 1, 0, 6, 15, "Repas1");
+INSERT INTO Repas VALUES(null, 5, 1, 7, 0, "Repas2");
+INSERT INTO Repas VALUES(null, 10, 2, 8, 0, "Repas3");
+INSERT INTO Repas VALUES(null, 1, 3, 9, 11, "Repas4");
+INSERT INTO Repas VALUES(null, 5, 4, 10, 0, "Repas5");
+INSERT INTO Repas VALUES(null, 10, 5, 0, 0, "Repas6");
+INSERT INTO Repas VALUES(null, 1, 1, 6, 12, "Repas7");
+INSERT INTO Repas VALUES(null, 5, 2, 7, 13, "Repas8");
+INSERT INTO Repas VALUES(null, 10, 3, 8, 14, "Repas9");
 
 CREATE TABLE Menu(
     id_menu INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     libelle VARCHAR(255),
     id_Pdeg INT,
     id_Deg INT,
-    id_diner INT,
-    FOREIGN KEY (id_Pdeg) REFERENCES Repas (id_repas),
-    FOREIGN KEY (id_Deg) REFERENCES Repas (id_repas),
-    FOREIGN KEY (id_diner) REFERENCES Repas (id_repas)
+    id_diner INT
 );
+
+INSERT INTO Menu VALUES(null, 'Menu1', 1, 0, 9);
+INSERT INTO Menu VALUES(null, 'Menu2', 4, 2, 0);
+INSERT INTO Menu VALUES(null, 'Menu3', 7, 5, 3);
+INSERT INTO Menu VALUES(null, 'Menu4', 0, 8, 6);
+INSERT INTO Menu VALUES(null, 'Menu5', 1, 0, 9);
+INSERT INTO Menu VALUES(null, 'Menu6', 4, 2, 0);
+INSERT INTO Menu VALUES(null, 'Menu7', 7, 5, 3);
+INSERT INTO Menu VALUES(null, 'Menu8', 0, 8, 6);
+INSERT INTO Menu VALUES(null, 'Menu9', 1, 0, 9);
 
 CREATE TABLE RegimeMenu(
     id_reg_menu INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_reg_alime int REFERENCES Regime_Alimentaire(id_regime_alime),
     id_menu int REFERENCES Menu(id_menu)
 );
+
+INSERT INTO RegimeMenu VALUES(null, 1, 1);
+INSERT INTO RegimeMenu VALUES(null, 1, 2);
+INSERT INTO RegimeMenu VALUES(null, 1, 3);
+INSERT INTO RegimeMenu VALUES(null, 2, 4);
+INSERT INTO RegimeMenu VALUES(null, 2, 5);
+INSERT INTO RegimeMenu VALUES(null, 3, 6);
+INSERT INTO RegimeMenu VALUES(null, 3, 7);
+INSERT INTO RegimeMenu VALUES(null, 4, 8);
+INSERT INTO RegimeMenu VALUES(null, 4, 9);
+INSERT INTO RegimeMenu VALUES(null, 4, 1);
+INSERT INTO RegimeMenu VALUES(null, 5, 2);
 
 ----------------------------------------SPORTIVE-----------------------------------------------
 CREATE TABLE Regime_sportive(

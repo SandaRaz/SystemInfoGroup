@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class F_Regime_C extends CI_Controller {
+class F_PropRegime_C extends CI_Controller {
 
 	public function __constuct()
     {
@@ -10,7 +10,7 @@ class F_Regime_C extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('F_regime');
+		$this->load->view('F_mes_regimes');
 	}
 
 }

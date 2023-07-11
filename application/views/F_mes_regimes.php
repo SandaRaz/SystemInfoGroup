@@ -1,3 +1,5 @@
+<?php $this->load->helper('url'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,32 +11,40 @@
     <meta name="author" content="" />
     <title>Mes regimes</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../assets/css/styles.css" rel="stylesheet" />
-    <script src="../assets/vendor/fontawesome/js/all.min.js"></script>
+    <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+    <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
 </head>
 
 <body>
-    <nav id="mainNav" class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase"
-        style="background-color: lightseagreen;">
-        <div class="container"><button
-                class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded"
-                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div id="navbarResponsive" class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#portfolio">Home</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Mes regimes</a></li>
-
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#about">Profil</a>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#contact">Contact</a></li>
-                </ul>
-            </div>
+<nav id="mainNav" class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" style="background-color: lightseagreen;">
+    <div class="container"><button
+            class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded"
+            data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div id="navbarResponsive" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                        href="<?php echo base_url('F_Login_C/connection'); ?>">Home</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Regime_C'); ?>">Mes regimes</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Profil_C'); ?>">Profil</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                        href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </nav>
+    </div>
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="<?php echo base_url('F_Login_C/retour'); ?>">Menu</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="<?php echo base_url('F_Login_C/deconnexion'); ?>">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
     <header class="bg-primary-gradient">
         <div class="container pt-4 pt-xl-5">
             <div class="row pt-5">
@@ -219,6 +229,15 @@
             </div>
         </div>
     </footer>
+
+    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/scripts.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/charts/Chart.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-bar-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
 </body>
 
 </html>

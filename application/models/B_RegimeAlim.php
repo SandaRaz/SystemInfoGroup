@@ -40,7 +40,7 @@ class B_RegimeAlim extends CI_Model {
     }
 
     public function regimeDetaillee(){
-
+        $query = "";
     }
     
     public function dateplus($date, $jours) {

@@ -22,7 +22,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                                 href="<?php echo base_url('F_Login_C/connection'); ?>">Home</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Regime_C'); ?>">Mes regimes</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_PropRegime_C'); ?>">Mes regimes</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Profil_C'); ?>">Profil</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
@@ -42,7 +42,6 @@
                 </li>
             </ul>
         </nav>
-
 
         <header class="bg-primary-gradient">
             <div class="container pt-4 pt-xl-5">
