@@ -117,13 +117,6 @@
         public function page_chart(){
 
             $this->load->view('B_statistique');
-        }
-        
-        public function test(){
-            $this->load->model('B_RegimeAlim');
-            $this->load->model('B_RegimeSport');
-            var_dump($this->B_RegimeAlim->nombredejour(3,2022));
-        }
-        
+        }    
     }
 ?>
