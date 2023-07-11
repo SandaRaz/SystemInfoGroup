@@ -31,7 +31,7 @@ class B_Login_C extends CI_Controller {
         if($sessionMdp == null){
             redirect(base_url('B_Login_C'));
         }else{
-            $this->load->view('B_home');
+            $this->load->view('B_statistique');
         }
     }
 
