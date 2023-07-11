@@ -53,6 +53,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime sportive
                         </a>
+                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/valide'); ?>">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Demande de code
+                        </a>
                     </div>
                 </div>
             </nav>

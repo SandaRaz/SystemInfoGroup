@@ -54,6 +54,10 @@ $this->load->helper('url');
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime sportive
                         </a>
+                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/regimeSportive'); ?>">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Demande de code
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -306,6 +310,7 @@ $this->load->helper('url');
                                 </form>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </section>
