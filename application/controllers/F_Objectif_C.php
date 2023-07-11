@@ -15,8 +15,11 @@
 
             $Pobjectif=$this->input->post('objectif');
             $id_client=$this->input->post('id_client');
-
-            $client=$this->F_Client->getClientInfo($id_client);
+            if($Pobjectif<=0){
+                $err="Objectif doit etre superieur a 0";
+                $this->load->view('F_accueil',$err);
+            }else{
+                $client=$this->F_Client->getClientInfo($id_client);
 
             $Pactuel=$client->poids;
 
@@ -47,7 +50,7 @@
     
 
             $dateInitiale = date('Y-m-d');
-            $nouvelleDate = $this->B_RegimeAlim->dateplus($dateInitiale,5);
+            $nouvelleDate = $this->B_RegimeAlim->dateplus($dateInitiale,$nombrejour);
 
             $data=array(
                 'id_client'=>$id_client,
@@ -62,6 +65,8 @@
 
             $this->load->view('F_accueil');
 
+            }
+            
         }
 
     }

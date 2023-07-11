@@ -118,6 +118,9 @@
                                             </path>
                                         </svg></div>
                                     <h5 class="fw-bold card-title">Allez-y ! </h5>
+                                        <p>
+
+                                        </p>                                    
                                     <p class="text-muted card-text mb-4">Commencez votre regime!
                                     </br>
                                         Veuillez choisir vos objectifs

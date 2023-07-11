@@ -39,9 +39,20 @@ class B_RegimeAlim extends CI_Model {
         $this->db->insert('RegimeMenu', $data);
     }
     
-    function dateplus($date, $jours) {
+    public function dateplus($date, $jours) {
         $nouvelleDate = date('Y-m-d', strtotime($date . ' +'.$jours.' days'));
         return $nouvelleDate;
+    }
+    
+    public function getIdRegimebyPoids($id_client, $poidInitial, $poidFinal) {
+        $difference = $poidFinal - $poidInitial;
+        $action = ($difference < 0) ? -1 : 1;
+    
+        $regimesAlim = $this->getRegimeAlimByAction($action);
+        $indiceAlea = rand(0, count($regimesAlim) - 1);
+        $regimeAlim = $regimesAlim[$indiceAlea];
+    
+        return $regimeAlim;
     }
     
 }
