@@ -16,6 +16,21 @@ CREATE TABLE Client(
 
 INSERT INTO Client VALUES(null, 'Raz', 'Sanda', '1999-12-31', 'M', 190, 'sanda@gmail.com', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2');
 
+CREATE TABLE Historique_poids(
+    id_client INT,
+    poids DECIMAL(10,2),
+    dates DATE,
+    FOREIGN KEY (id_client) REFERENCES Client (id_client)
+);
+
+SELECT hp.id_client, c.nom,c.prenom,c.date_de_naissance,c.genre,c.taille,c.email,hp.poids,max(dates) as dates 
+FROM Historique_poids as hp
+JOIN Client as c ON c.id_client = hp.id_client
+WHERE hp.id_client=1;
+
+INSERT INTO Historique_poids VALUES(1, 70, '2023-07-11');
+INSERT INTO Historique_poids VALUES(1, 67, '2023-06-17');
+
 CREATE TABLE Compte(
     id_compte INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_client INT,
@@ -143,15 +158,6 @@ CREATE TABLE Objectif(
     id_regime_sport INT,
     FOREIGN KEY (id_regime_Alime) REFERENCES Regime_Alimentaire (id_regime_Alime),
     FOREIGN KEY (id_regime_sport) REFERENCES Regime_sportive (id_regime_sport),
-    FOREIGN KEY (id_client) REFERENCES Client (id_client)
-);
-
-
-
-CREATE TABLE Historique_poids(
-    id_client INT,
-    poids DECIMAL(10,2),
-    dates DATE,
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 

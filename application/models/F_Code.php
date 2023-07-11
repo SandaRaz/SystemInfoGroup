@@ -6,10 +6,7 @@
             $this->load->database();
         }
 
-        public function demandeCode($idClient){
-            $data=array(
-                'id_client'=>$idClient
-            );
+        public function demandeCode($data){
             return $this->db->insert('Demande_code', $data);
         }
 

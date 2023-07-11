@@ -12,7 +12,8 @@ class B_Caisse extends CI_Model{
             WHERE MONTH(dates) = ? 
             AND YEAR(dates) = ?
             GROUP BY id_caisse,dates";
-        $result = $this->db->query($query, array($mois, $annee));
+        $results = $this->db->query($query, array($mois, $annee));
+        return $results;
     }
 
     public function getListeDepense($mois, $annee){
@@ -21,7 +22,8 @@ class B_Caisse extends CI_Model{
             WHERE MONTH(dates) = ? 
             AND YEAR(dates) = ?
             GROUP BY id_caisse,dates";
-        $result = $this->db->query($query, array($mois, $annee));
+        $results = $this->db->query($query, array($mois, $annee));
+        return $results;
     }
 
     public function getMontantActuel(){

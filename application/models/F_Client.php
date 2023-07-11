@@ -7,16 +7,13 @@ class F_Client extends CI_Model{
     }
 
     public function validLogin($mailnom,$mdp){
-        $query1 = $this->db->get_where('client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
-        $result1 = $query1->row();
-
-        $query2 = $this->db->get_where('client', array('nom'=>$mailnom , 'mdp'=>sha1($mdp)));
-        $result2 = $query2->row();
+        $query = $this->db->get_where('client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
+        $result = $query->row();
         
-        if($result1 == null && $result2 == null){
-            return false;
+        if($result == null){
+            return 0;
         }else{
-            return true;
+            return $result->id_client;
         }
     }
 
@@ -32,6 +29,20 @@ class F_Client extends CI_Model{
     public function getAll(){
         $query = $this->db->get('mvt_physique');
         return $query->result();
+    }
+
+    public function getClientInfo($idclient){
+        $query = "SELECT hp.id_client, c.nom,c.prenom,c.date_de_naissance,c.genre,c.taille,c.email,hp.poids,max(dates) as dates 
+        FROM Historique_poids as hp
+        JOIN Client as c ON c.id_client = hp.id_client
+        WHERE hp.id_client = ?";
+
+        $result = $this->db->query($query, array($idclient));
+        if($result->num_rows() > 0){
+            return $result->row();
+        }else{
+            return null;
+        }
     }
 
     public function insertPoids($id_client, $newPoid) {

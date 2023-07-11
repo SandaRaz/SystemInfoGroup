@@ -26,19 +26,19 @@ class F_Login_C extends CI_Controller {
 
         $valid = $this->F_Client->validLogin($email, $mdp);
 
-        if($valid){
-            $this->session->set_userdata('usermail', $email);
+        if($valid =! 0){
+            $this->session->set_userdata('userid', $valid);
             redirect(base_url('F_Login_C/connection'));
         }else{
-            echo "Noooooooooooooo";
+            echo "Noooooooooooooo misy erreur";
         }
     }
 
     public function connection(){
         $this->load->helper('url');
 
-        $usermail = $this->session->userdata('usermail');
-        if($usermail == null){
+        $userid = $this->session->userdata('userid');
+        if($userid == null){
             redirect(base_url('F_Login_C'));
         }else{
             $this->load->view('F_accueil');

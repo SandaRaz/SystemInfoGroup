@@ -1,3 +1,4 @@
+<?php $this->load->helper('url'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,20 +10,19 @@
     <meta name="author" content="" />
     <title>Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="assets/css/styles.css" rel="stylesheet" />
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-    <script src="assets/vendor/fontawesome/js/all.min.js"></script>
+    <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/boxicons/css/boxicons.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/quill/quill.snow.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/quill/quill.bubble.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/remixicon/remixicon.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/vendor/simple-datatables/style.css'); ?>" rel="stylesheet">
+    <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
 </head>
 
 <body>
-    <nav id="mainNav" class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase"
-        style="background-color: lightseagreen;">
+<nav id="mainNav" class="navbar navbar-light navbar-expand-lg fixed-top text-uppercase" style="background-color: lightseagreen;">
         <div class="container"><button
                 class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded"
                 data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
@@ -30,19 +30,28 @@
             <div id="navbarResponsive" class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#portfolio">Home</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Mes
-                            regimes</a></li>
-
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#about">Profil</a>
+                            href="<?php echo base_url('F_Login_C/connection'); ?>">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Regime_C'); ?>">Mes regimes</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Profil_C'); ?>">Profil</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="<?php echo base_url('F_Login_C/retour'); ?>">Menu</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="<?php echo base_url('F_Login_C/deconnexion'); ?>">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
     </nav>
+
     <header class="bg-primary-gradient">
         <div class="container pt-4 pt-xl-5">
             <div class="row pt-5">
@@ -65,13 +74,11 @@
         <section class="section profile">
             <div class="row">
                 <div class="col-xl-4">
-    
                     <div class="card">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-    
-                            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                            <h2>NOM</h2>
-                            <h3>PRENOM</h3>
+                            <img src="<?php echo base_url('assets/img/profile-img.jpg'); ?>" alt="Profile" class="rounded-circle">
+                            <h3><?php echo $client->prenom; ?></h3>
+                            <h3><?php echo $client->nom; ?></h3>
                             <div class="social-links mt-2">
                                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -80,11 +87,22 @@
                             </div>
                         </div>
                     </div>
-    
+                    <br>    
+                    <div class="card">
+                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                            <h2>Montant (Ariary)</h2>
+                            <h3><?php echo $montant->montant; ?></h3>
+                            <div class="social-links mt-2">
+                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
     
                 <div class="col-xl-8">
-    
                     <div class="card">
                         <div class="card-body pt-3">
                             <!-- Bordered Tabs -->
@@ -99,6 +117,10 @@
                                     <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit
                                         Profile</button>
                                 </li>
+
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#ajout-code">Code credit</button>
+                                </li>
     
                             </ul>
                             <div class="tab-content pt-2">
@@ -106,28 +128,28 @@
                                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
                                     <h5 class="card-title">Profile Details</h5>
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                        <div class="col-lg-9 col-md-8">NOM ET PRENOM</div>
+                                        <div class="col-lg-3 col-md-4 label "><b>Full Name</b></div>
+                                        <div class="col-lg-9 col-md-8"><?php echo $client->prenom." ".$client->nom; ?></div>
                                     </div>
     
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Date de naissance</div>
-                                        <div class="col-lg-9 col-md-8">DATE DE NAISSANCE</div>
+                                        <div class="col-lg-3 col-md-4 label"><b>Date de naissance</b></div>
+                                        <div class="col-lg-9 col-md-8"><?php echo $client->date_de_naissance; ?></div>
                                     </div>
     
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Genre</div>
-                                        <div class="col-lg-9 col-md-8">GENRE</div>
+                                        <div class="col-lg-3 col-md-4 label"><b>Genre</b></div>
+                                        <div class="col-lg-9 col-md-8"><?php echo $client->genre; ?></div>
                                     </div>
     
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Taille</div>
-                                        <div class="col-lg-9 col-md-8">TAILLE</div>
+                                        <div class="col-lg-3 col-md-4 label"><b>Taille</b></div>
+                                        <div class="col-lg-9 col-md-8"><?php echo $client->taille; ?></div>
                                     </div>
     
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-4 label">Email</div>
-                                        <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                                        <div class="col-lg-3 col-md-4 label"><b>Email</b></div>
+                                        <div class="col-lg-9 col-md-8"><?php echo $client->email; ?></div>
                                     </div>
     
                                 </div>
@@ -152,7 +174,7 @@
                                         <div class="row mb-3">
                                             <label for="Email" class="col-md-4 col-lg-3 col-form-label">Poids</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="email" class="form-control" id="poids-farany"
+                                                <input name="poids-farany" type="email" class="form-control" id="poids-farany"
                                                     value="poids farany">
                                             </div>
                                         </div>
@@ -168,18 +190,27 @@
                                     </form><!-- End Profile Edit Form -->
     
                                 </div>
-    
+
+                                <div class="tab-pane fade ajout-code pt-3" id="ajout-code">
+                                    <form action="/" method="POST">
+                                        <input type="hidden" name="idclient" value="<?php echo $client->id_client; ?>">
+                                        <div class="row mb-3">
+                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Code</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="code-credit" type="text" class="form-control" id="poids-farany" placeholder="entrez votre code de credit">
+                                            </div>
+                                            <div class="col-md-8 col-lg-9">
+                                                <h5>Ancien code</h5>
+                                                <div style="max-height: 200px; border: 1px solid black; overflow-y: auto">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Demander</button>
+                                        </div>
+                                    </form>
+                                </div>
                         </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                        <div class="card-body pt-3">
-                            <p>Payement par code <input type="text" name="code" style="border-top: none;border-left: none; border-right: none;"></p>
-                            <button type="submit" class="btn btn-primary">Payer</button>
-                        </div>
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                     </div>
     
                 </div>
@@ -256,6 +287,15 @@
             </div>
         </div>
     </footer>
+
+    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/scripts.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/charts/Chart.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-bar-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
 </body>
 
 </html>

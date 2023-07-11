@@ -21,9 +21,9 @@
                 <div id="navbarResponsive" class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                href="#portfolio">Home</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Mes regimes</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Profil</a>
+                                href="<?php echo base_url('F_Login_C/connection'); ?>">Home</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Regime_C'); ?>">Mes regimes</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="<?php echo base_url('F_Profil_C'); ?>">Profil</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                                 href="#contact">Contact</a></li>
@@ -42,6 +42,8 @@
                 </li>
             </ul>
         </nav>
+
+
         <header class="bg-primary-gradient">
             <div class="container pt-4 pt-xl-5">
                 <div class="row pt-5">
@@ -120,8 +122,10 @@
                                     </br>
                                         Veuillez choisir vos objectifs
                                     </p>
-                                    </p><button
-                                        class="btn btn-primary shadow" type="button">Choisir mon objectif</button>
+                                    </p>
+                                    <a href="/">
+                                        <button class="btn btn-primary shadow" type="button">Choisir mon objectif</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
