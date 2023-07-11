@@ -58,7 +58,6 @@ class B_RegimeAlim extends CI_Model {
     
         return $regimeAlim;
     }
-    
 }
 
 ?>
