@@ -58,6 +58,18 @@ class B_RegimeAlim extends CI_Model {
     
         return $regimeAlim;
     }
+
+    public function getIdMenu($idRegimeAlim, $menu){
+        $query = "SELECT id_menu FROM RegimeMenu WHERE id_reg_alime = ?";
+        $result = $this->db->query($query, $idRegimeAlim);
+        return $result->result_array();
+    }
+
+    public function getListePlatMatin($idRegimeAlim, $idRepas){
+        $query = "SELECT * FROM Repas WHERE id_repas IN (SELECT id_Pdeg FROM (SELECT mn.id_Pdeg FROM RegimeMenu AS rm
+        JOIN Menu AS mn ON mn.id_menu = rm.id_menu
+        JOIN Repas AS rp ON rp.id_repas = mn.`id_Pdeg`))"
+    }
 }
 
 ?>

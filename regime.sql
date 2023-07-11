@@ -178,6 +178,22 @@ INSERT INTO RegimeMenu VALUES(null, 4, 9);
 INSERT INTO RegimeMenu VALUES(null, 4, 1);
 INSERT INTO RegimeMenu VALUES(null, 5, 2);
 
+SELECT id_menu FROM RegimeMenu WHERE id_reg_alime = 1;
+
+
+SELECT rm.id_reg_alime,mn.* FROM RegimeMenu AS rm
+JOIN Menu AS mn ON mn.id_menu = rm.id_menu
+JOIN Repas AS rp ON rp.id_repas = mn.`id_Pdeg`
+
+WHERE id_reg_alime = 1;
+
+SELECT rm.id_reg_alime, mn.*
+FROM RegimeMenu AS rm
+JOIN Menu AS mn ON mn.id_menu = rm.id_menu
+WHERE id_reg_alime = 1;
+
+
+SELECT * FROM Repas;
 ----------------------------------------SPORTIVE-----------------------------------------------
 CREATE TABLE Regime_sportive(
     id_regime_sport INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -188,15 +204,19 @@ CREATE TABLE Regime_sportive(
 
 INSERT INTO Regime_sportive VALUES(null,'Mampihena',-1,0.2);
 INSERT INTO Regime_sportive VALUES(null,'Mampihena be',-1,0.5);
-
 INSERT INTO Regime_sportive VALUES(null,'Mampitombo',1,0.2);
-INSERT INTO Regime_sportive VALUES(null,'Mampihena be',-1,0.5);
 
 CREATE TABLE Mvt_physique(
     id_mvt INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
     PRIMARY KEY (id_mvt)
 );
+
+INSERT INTO Mvt_physique VALUES(null, 'Pompe');
+INSERT INTO Mvt_physique VALUES(null, 'Squat');
+INSERT INTO Mvt_physique VALUES(null, 'Trottiner');
+INSERT INTO Mvt_physique VALUES(null, 'Musculation');
+INSERT INTO Mvt_physique VALUES(null, 'Endurance');
 
 CREATE TABLE Sport(
     id_regime_sport INT,
@@ -205,6 +225,15 @@ CREATE TABLE Sport(
     FOREIGN KEY (id_regime_sport) REFERENCES Regime_sportive (id_regime_sport),
     FOREIGN KEY (id_mvt) REFERENCES Mvt_physique (id_mvt)
 );
+
+INSERT INTO Sport VALUES(1, 5, 20);
+INSERT INTO Sport VALUES(1, 3, 10);
+INSERT INTO Sport VALUES(2, 1, 15);
+INSERT INTO Sport VALUES(2, 2, 15);
+INSERT INTO Sport VALUES(2, 3, 15);
+INSERT INTO Sport VALUES(3, 4, 15);
+INSERT INTO Sport VALUES(3, 1, 15);
+INSERT INTO Sport VALUES(3, 2, 15);
 
 ----------------------------------------OBJECTIF---------------------------------------------
 CREATE TABLE Objectif(
@@ -219,6 +248,10 @@ CREATE TABLE Objectif(
     FOREIGN KEY (id_regime_sport) REFERENCES Regime_sportive (id_regime_sport),
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
+
+SELECT * FROM Objectif 
+WHERE id_objectif = (SELECT Max(id_objectif) as max_id FROM Objectif)
+AND id_client = 1;
 
 CREATE TABLE Historique_poids(
     id_client INT,
@@ -273,6 +306,10 @@ SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
 FROM Client as c
 JOIN Demande_code as dc
 ON c.id_client=c.id_client;
+
+SELECT * FROM Repas WHERE id_repas IN (SELECT mn.id_Pdeg FROM RegimeMenu AS rm
+        JOIN Menu AS mn ON mn.id_menu = rm.id_menu
+        JOIN Repas AS rp ON rp.id_repas = mn.`id_Pdeg`)
 
 SELECT*FROM `Objectif`;
 
