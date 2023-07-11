@@ -30,6 +30,7 @@ class F_Login_C extends CI_Controller {
             $this->session->set_userdata('userid', $valid);
         }
         redirect(base_url('F_Login_C/connection'));
+        
     }
 
     public function connection(){

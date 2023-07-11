@@ -2,9 +2,13 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     class F_Objectif_C extends CI_Controller{
 
-        public function V_Objectif()
-        {
-            $this->load->view('F_objectif');
+        public function index()
+        {   
+            $this->load->model('F_Client');
+            $iduser = $this->session->userdata('userid');
+            $data['client'] = $this->F_Client->getClientInfo($iduser);
+
+            $this->load->view('F_objectif', $data);
         }
 
         public function ajoutObjectif(){

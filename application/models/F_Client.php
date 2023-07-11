@@ -21,7 +21,7 @@ class F_Client extends CI_Model{
     }
 
     public function getClientInfo($idclient){
-        $query = "SELECT c.id_client, c.nom, c.prenom, c.date_de_naissance, c.genre, c.taille, c.email, ids.poids, MAX(ids.dates) AS dates
+        $query = "SELECT c.id_client, c.nom, c.prenom, c.date_de_naissance, c.genre, ids.taille, c.email, ids.poids, MAX(ids.dates) AS dates
         FROM informations_de_sante AS ids
         JOIN Client AS c ON c.id_client = ids.id_client
         WHERE c.id_client = ?";
@@ -54,7 +54,7 @@ class F_Client extends CI_Model{
         $query = $this->db->get_where('Client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
         $result = $query->row();
 
-        if(count($result1) == null){
+        if($result == null){
             return 0;
         }else{
             return $result->id_client;
