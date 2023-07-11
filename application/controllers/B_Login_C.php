@@ -9,7 +9,13 @@ class B_Login_C extends CI_Controller {
 	}
 
     public function authentified(){
-        $this->load->view('B_home');
+        $this->load->model('B_Admin');
+
+        $mdp = $this->input->post('mdp');
+        $valid = $this->B_Admin->validLogin($mdp);
+        if($valid){
+            $this->load->view('B_home');
+        }
     }
 
 }

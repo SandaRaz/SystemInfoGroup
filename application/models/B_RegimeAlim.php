@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class B_RegimeAlim extends CI_Model {
     
@@ -10,6 +9,10 @@ class B_RegimeAlim extends CI_Model {
 
     public function getRegimeAlim(){
         return $this->db->get('Regime_Alimentaire')->result_array();
+    }
+
+    public function getRegimeAlimByAction($action){
+        $query = $thid->db->get_where('Regime_Alimentaire')->result();
     }
 
     public function getRegimeAlimbyId($id){
@@ -29,6 +32,10 @@ class B_RegimeAlim extends CI_Model {
     public function deleteRegimeAlim($id){
         $this->db->where('id_regime_Alime', $id);
         return $this->db->delete('Regime_Alimentaire');
+    }
+
+    public function insererRegAlim($data){
+        $this->db->insert('RegimeMenu', $data);
     }
     
 }
