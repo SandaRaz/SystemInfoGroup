@@ -38,7 +38,7 @@
                                 <div class="mb-3"><button class="btn btn-primary d-block w-100"
                                         type="submit">Login</button></div>
                             </form>
-                            <p class="text-muted">Pas de compte? <a href="">S'inscrire</a></p>
+                            <p class="text-muted">Pas de compte? <a href="<?php echo base_url('F_Login_C/pageinscription'); ?>">S'inscrire</a></p>
                             <a href="<?php echo base_url('F_Login_C/retour') ?>">Retour</a>
                         </div>
                     </div>

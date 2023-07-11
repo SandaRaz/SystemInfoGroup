@@ -24,6 +24,10 @@
             $this->db->where('id_compte',$compte->id_compte);
             return $this->db->get('Mvt_compte')->result_array();
         }
+
+        public function insertNewCompte($data){
+            
+        }
         
     }
 ?>

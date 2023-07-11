@@ -34,49 +34,28 @@
 
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
-                        <h2 class="fw-bold mb-5">Sign up now</h2>
-                        <form action="<?php echo base_url('F_Login_C/inscription1'); ?>" method="POST">
+                        <form action="<?php echo base_url('F_Login_C/inscription2'); ?>" method="POST">
                             <!-- 2 column grid layout with text inputs for the first and last names -->
                             <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
-                                        <input type="text" name="nom" id="form3Example1" class="form-control" />
-                                        <label class="form-label" for="form3Example1">First name</label>
+                                        <input type="number" step="0.1" name="taille" id="form3Example2" class="form-control" />
+                                        <label class="form-label" for="form3Example1">Taille</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
-                                        <input type="text" name="prenom" id="form3Example2" class="form-control" />
-                                        <label class="form-label" for="form3Example2">Last name</label>
+                                        <input type="number" step="0.1" name="poids" id="form3Example2" class="form-control"/>
+                                        <label class="form-label" for="form3Example2">Poids</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline">
-                                        <input type="date" name="datenaissance" id="form3Example1" class="form-control" />
-                                        <label class="form-label" for="form3Example1">Date de naissance</label>
-                                    </div>
-                            </div>
-
-                            <!-- Email input -->
-                            <div class="col-md-6 mb-4">
-                                <input type="email" name="email" id="form3Example3" class="form-control"/>
-                                <label class="form-label" for="form3Example3">Email address</label>
-                            </div>
-
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" name="mdp" id="form3Example4" class="form-control"/>
-                                <label class="form-label" for="form3Example4">Password</label>
-                            </div>
-
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-primary btn-block mb-4">
                                 Enregistrer
                             </button>
                         </form>
-                        <a href="<?php echo base_url('F_Login_C') ?>">Retour</a>
+                        <a href="<?php echo base_url('F_Login_C/pageinscription') ?>">Retour</a>
                     </div>
                 </div>
             </div>

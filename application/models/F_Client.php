@@ -7,7 +7,7 @@ class F_Client extends CI_Model{
     }
 
     public function validLogin($mailnom,$mdp){
-        $query = $this->db->get_where('client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
+        $query = $this->db->get_where('Client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
         $result = $query->row();
         
         if($result == null){
@@ -23,19 +23,19 @@ class F_Client extends CI_Model{
     }
 
     public function modifier($id,$data){
-        $this->db->update('mvt_physique', $data, array('id_mvt'=>$id));
+        $this->db->update('Mvt_physique', $data, array('id_mvt'=>$id));
     }
 
     public function getAll(){
-        $query = $this->db->get('mvt_physique');
+        $query = $this->db->get('Mvt_physique');
         return $query->result();
     }
 
     public function getClientInfo($idclient){
-        $query = "SELECT hp.id_client, c.nom,c.prenom,c.date_de_naissance,c.genre,c.taille,c.email,hp.poids,max(dates) as dates 
-        FROM Historique_poids as hp
-        JOIN Client as c ON c.id_client = hp.id_client
-        WHERE hp.id_client = ?";
+        $query = "SELECT c.id_client, c.nom,c.prenom,c.date_de_naissance,c.genre,c.email,ids.taille,ids.poids,max(dates) as dates 
+        FROM informations_de_sante as ids
+        JOIN Client as c ON c.id_client = ids.id_client
+        WHERE c.id_client = ?";
 
         $result = $this->db->query($query, array($idclient));
         if($result->num_rows() > 0){
@@ -45,12 +45,8 @@ class F_Client extends CI_Model{
         }
     }
 
-    public function insertPoids($id_client, $newPoid) {
-        $data = array(
-            'poids' => $newPoid,
-            'dates' => date('Y-m-d')
-        );
-        return $this->db->insert('historique_poid', $data);
+    public function insertInfoSante($data) {
+        return $this->db->insert('informations_de_sante', $data);
     }
 
     public function getCompte($id_client){
