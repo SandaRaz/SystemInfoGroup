@@ -12,7 +12,7 @@ class B_RegimeAlim extends CI_Model {
     }
 
     public function getRegimeAlimByAction($action){
-        $query = $thid->db->get_where('Regime_Alimentaire')->result();
+        $query = $this->db->get_where('Regime_Alimentaire')->result();
     }
 
     public function getRegimeAlimbyId($id){
