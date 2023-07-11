@@ -48,7 +48,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime alimentaire
                         </a>
-                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/regimeSportive'); ?>">
+                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/regimeSportif'); ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime sportive
                         </a>
@@ -66,11 +66,11 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Ajout Mouvement:</h5>
                                     </br>
-                                    <form>
+                                    <form id="ajoutmvt">
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputText">
+                                                <input type="text" class="form-control" id="inputText" name="nom">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -209,6 +209,7 @@
     <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/ajax/B_RegimeAlim.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/ajax/regime_aliment.js'); ?>"></script>
 </body>
 
 </html>

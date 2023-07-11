@@ -1,4 +1,6 @@
-<?php $this->load->helper('url'); ?>
+<?php 
+$this->load->helper('url');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +49,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime alimentaire
                         </a>
-                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/regimeSportive'); ?>">
+                        <a class="nav-link" href="<?php echo base_url('B_RegimeAlim_C/regimeSportif'); ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Ajout Regime sportive
                         </a>
@@ -185,38 +187,48 @@
                             <div class="card-body">
                                 <h5 class="card-title">Ajout Menu:</h5>
                                 </br>
-                                <form>
+                                <form id="ajoutMenu">
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputText" name="libelle">
+                                            <input type="text" class="form-control" id="inputText" name="nom_menu">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Petit dejeuner</label>
                                         <div class="col-sm-10">
-                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                <option>SELECT NOM FROM REPAS</option>
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="idpdej">
+
                                                 <option disabled selected hidden value="0">Aucun</option>
-                                                    
+                                                <?php
+                                                foreach ($ptdej as $repas) : ?> 
+                                                    <option value="<?php echo $repas['id_repas']; ?>"><?php echo $repas['nom_repas']; ?></option> 
+                                            <?php endforeach; ?>
+
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Dejeuner</label>
                                         <div class="col-sm-10">
-                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                <option>SELECT NOM FROM REPAS</option>
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="iddej">
                                                 <option disabled selected hidden value="0">Aucun</option>
+                                                <?php
+                                                foreach ($dej as $repas) : ?> 
+                                                    <option value="<?php echo $repas['id_repas']; ?>"><?php echo $repas['nom_repas']; ?></option> 
+                                            <?php endforeach; ?>
                                             
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputPassword3" class="col-sm-2 col-form-label">Diner</label>
-                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                            <option>SELECT NOM FROM REPAS</option>
+                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="iddin">
                                             <option disabled selected hidden value="0">Aucun</option>
+                                            <?php
+                                                foreach ($din as $repas) : ?> 
+                                                    <option value="<?php echo $repas['id_repas']; ?>"><?php echo $repas['nom_repas']; ?></option> 
+                                            <?php endforeach; ?>
                                         
                                         </select>
                                     </div>
@@ -261,20 +273,27 @@
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Benefice</label>
                                         <div class="col-sm-10">
                                             <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="benefice">
-                                                <option>1-2-3-4.......</option>
+                                            <?php for ($i=1; $i <=10 ; $i++) { ?>
+                                                <option> <?php echo $i ; ?> </option>
+                                            <?php } ?>
                                             </select>
+                                            kg
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputPassword3" class="col-sm-2 col-form-label">Duree</label>
                                         <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="duree">
-                                            <option>1-2-3-4.........</option>
+                                            <?php for ($i=1; $i <=31 ; $i++) { ?>
+                                                <option> <?php echo $i ; ?>    </option>
+                                            <?php } ?>
                                         </select>
+                                        jours
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Prix</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="inputText" name="prix">
+            
                                         </div>
                                     </div>
                                     <div class="row mb-3">
