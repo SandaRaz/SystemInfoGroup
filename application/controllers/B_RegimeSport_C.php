@@ -6,5 +6,9 @@
         {
             parent::__constuct();
         }
+
+        public function index(){
+            $this->load->view('B_regime_alimentaire');
+        }
     }
 ?>
