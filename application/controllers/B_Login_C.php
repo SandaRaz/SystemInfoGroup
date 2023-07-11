@@ -26,7 +26,7 @@ class B_Login_C extends CI_Controller {
 
     public function connection(){
         $this->load->helper('url');
-
+        
         $sessionMdp = $this->session->userdata('sessionmdp');
         if($sessionMdp == null){
             redirect(base_url('B_Login_C'));

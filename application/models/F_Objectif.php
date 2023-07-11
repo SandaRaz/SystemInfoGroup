@@ -7,10 +7,12 @@ class F_Objectif extends CI_Model{
         $this->load->database();
     }
 
-    public function getAllObjectifs($idclient){
-        $query = $this->db->get_where('Objectif', array('id_client' => $idclient));
-        $result = $query->result();
-        return $result;
+    public function getAllObjectif($idclient){
+        $query = "SELECT * FROM Objectif 
+        WHERE id_objectif = (SELECT Max(id_objectif) as max_id FROM Objectif)
+        AND id_client = ?";
+        $result = $this->db->query($query, $idclient);
+        return $result->result();
     }
 
     public function createObjectif($data){

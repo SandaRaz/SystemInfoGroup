@@ -174,10 +174,13 @@ INSERT INTO RegimeMenu VALUES(null, 4, 9);
 INSERT INTO RegimeMenu VALUES(null, 4, 1);
 INSERT INTO RegimeMenu VALUES(null, 5, 2);
 
+SELECT id_menu FROM RegimeMenu WHERE id_reg_alime = 1;
 
-SELECT rm.id_reg_alime,mn. FROM RegimeMenu AS rm
+
+SELECT rm.id_reg_alime,mn.* FROM RegimeMenu AS rm
 JOIN Menu AS mn ON mn.id_menu = rm.id_menu
-JOIN Repas AS rp ON rp.id_repas = mn.id_Entrer
+JOIN Repas AS rp ON rp.id_repas = mn.`id_Pdeg`
+
 WHERE id_reg_alime = 1;
 
 SELECT rm.id_reg_alime, mn.*
@@ -242,6 +245,10 @@ CREATE TABLE Objectif(
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
+SELECT * FROM Objectif 
+WHERE id_objectif = (SELECT Max(id_objectif) as max_id FROM Objectif)
+AND id_client = 1;
+
 CREATE TABLE Historique_poids(
     id_client INT,
     poids DECIMAL(10,2),
@@ -295,6 +302,10 @@ SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
 FROM Client as c
 JOIN Demande_code as dc
 ON c.id_client=c.id_client;
+
+SELECT * FROM Repas WHERE id_repas IN (SELECT mn.id_Pdeg FROM RegimeMenu AS rm
+        JOIN Menu AS mn ON mn.id_menu = rm.id_menu
+        JOIN Repas AS rp ON rp.id_repas = mn.`id_Pdeg`)
 
 SELECT*FROM `Objectif`;
 
