@@ -57,7 +57,7 @@
             <div class="row pt-5">
                 <div class="col-md-8 col-xl-6 text-center text-md-start mx-auto">
                     <div class="text-center">
-                        <h1 class="fw-bold">Bienvenue dans notre site</h1>
+                        <h1 class="fw-bold">PROFIL UTILISATEUR</h1>
                     </div>
                 </div>
             </div>

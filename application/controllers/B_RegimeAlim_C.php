@@ -55,28 +55,28 @@
         public function ajoutRepas() {
             $this->load->model('B_Repas');
         
-            $types = $this->input->post('types');
+            $type = $this->input->post('type');
             $id_entrer = $this->input->post('id_entrer');
             $id_resistance = $this->input->post('id_resistance');
             $id_dessert = $this->input->post('id_dessert');
-            $nom = $this->input->post('nom_repas');
         
             $err = array();
         
-            
+            if ($type !== '1' && $type !== '5' && $type !== '10') {
+                $err['error'] = "Type incorrect";
+            } else {
                 $data = array(
-                    'id_repas' => null,
-                    'types' => $types,
+                    'types' => $type,
                     'id_entrer' => $id_entrer,
                     'id_resistance' => $id_resistance,
-                    'id_dessert' => $id_dessert,
-                    'nom_repas' => $nom
+                    'id_dessert' => $id_dessert
                 );
         
                 $query_result = $this->B_Repas->createRepas($data);
                 if (!$query_result) {
                     $err['error'] = $this->db->error();
                 }
+            }
             echo json_encode($err);
         }
         
@@ -117,6 +117,6 @@
         public function page_chart(){
 
             $this->load->view('B_statistique');
-        }
+        }    
     }
 ?>
