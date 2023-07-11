@@ -38,6 +38,10 @@ class B_RegimeAlim extends CI_Model {
     public function insererRegAlim($data){
         $this->db->insert('RegimeMenu', $data);
     }
+
+    public function regimeDetaillee(){
+
+    }
     
     public function dateplus($date, $jours) {
         $nouvelleDate = date('Y-m-d', strtotime($date . ' +'.$jours.' days'));

@@ -25,8 +25,8 @@ CREATE TABLE informations_de_sante(
 DROP TABLE information_de_sante;
 INSERT INTO information_de_sante (id_client, taille, poids, dates) VALUES (1, 190, 50, '2023-07-11');
 
-SELECT c.id_client, c.nom, c.prenom, c.date_de_naissance, c.genre, c.taille, c.email, ids.poids, MAX(ids.dates) AS dates
-FROM information_de_sante AS ids
+SELECT c.id_client, c.nom, c.prenom, c.date_de_naissance, c.genre, ids.taille, c.email, ids.poids, MAX(ids.dates) AS dates
+FROM informations_de_sante AS ids
 JOIN Client AS c ON c.id_client = ids.id_client
 WHERE ids.id_client = 1;
 
@@ -104,6 +104,7 @@ CREATE TABLE Repas(
     id_Entrer INT,
     id_Resistance INT not null,
     id_Dessert INT not null,
+    nom_repas VARCHAR(50),
     FOREIGN KEY (id_Entrer) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Resistance) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Dessert) REFERENCES Plat (id_plat)

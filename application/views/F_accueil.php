@@ -126,7 +126,7 @@
                                         Veuillez choisir vos objectifs
                                     </p>
                                     </p>
-                                    <a href="<?php echo base_url('F_Objectif_C/V_Objectif'); ?>">
+                                    <a href="<?php echo base_url('F_Objectif_C'); ?>">
                                         <button class="btn btn-primary shadow" type="button">Choisir mon objectif</button>
                                     </a>
                                 </div>
