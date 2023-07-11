@@ -26,12 +26,10 @@ class F_Login_C extends CI_Controller {
 
         $valid = $this->F_Client->validLogin($email, $mdp);
 
-        if($valid =! 0){
+        if($valid != 0 && $valid != NULL){
             $this->session->set_userdata('userid', $valid);
-            redirect(base_url('F_Login_C/connection'));
-        }else{
-            echo "Noooooooooooooo misy erreur";
         }
+        redirect(base_url('F_Login_C/connection'));
     }
 
     public function connection(){
@@ -70,6 +68,7 @@ class F_Login_C extends CI_Controller {
                 'nom'=> $this->input->post("nom"),
                 'prenom'=>$this->input->post("prenom"),
                 'date_de_naissance'=>$this->input->post("datenaissance"),
+                'genre'=>$this->input->post("genre"),
                 'email'=>$this->input->post("email"),
                 'mdp'=>$this->input->post("mdp")
             );
@@ -81,6 +80,7 @@ class F_Login_C extends CI_Controller {
     public function inscription2(){
         $this->load->helper('url');
         $this->load->model('F_Client');
+        $this->load->model('F_Compte');
 
         $this->load->library('form_validation');
 
@@ -101,7 +101,12 @@ class F_Login_C extends CI_Controller {
                 'dates' => date('Y-m-d')
             );
             $this->F_Client->insertInfoSante($data);
-            $
+
+            $dataCompte = array(
+                'id_client'=>$newid,
+                'montant'=>80000
+            );
+            $this->F_Compte->insertNewCompte($dataCompte);
 
             $this->session->set_userdata('userid', $newid);
             redirect(base_url('F_Login_C/connection'));

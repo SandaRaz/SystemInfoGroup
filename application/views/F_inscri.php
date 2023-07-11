@@ -50,31 +50,40 @@
                                         <label class="form-label" for="form3Example2">Last name</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
                                         <input type="date" name="datenaissance" id="form3Example1" class="form-control" />
                                         <label class="form-label" for="form3Example1">Date de naissance</label>
                                     </div>
-                            </div>
+                                </div>
 
-                            <!-- Email input -->
-                            <div class="col-md-6 mb-4">
-                                <input type="email" name="email" id="form3Example3" class="form-control"/>
-                                <label class="form-label" for="form3Example3">Email address</label>
-                            </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <select name="genre" id="form3Example10" class="form-control">
+                                            <option value="M">Masculin</option>
+                                            <option value="F">Feminin</option>
+                                        </select>
+                                        <label class="form-label" for="form3Example10">Genre</label>
+                                    </div>
+                                </div>
 
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" name="mdp" id="form3Example4" class="form-control"/>
-                                <label class="form-label" for="form3Example4">Password</label>
-                            </div>
+                                <!-- Email input -->
+                                <div class="col-md-6 mb-4">
+                                    <input type="email" name="email" id="form3Example3" class="form-control"/>
+                                    <label class="form-label" for="form3Example3">Email address</label>
+                                </div>
 
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4">
-                                Enregistrer
-                            </button>
+                                <!-- Password input -->
+                                <div class="col-md-6 mb-4">
+                                    <input type="password" name="mdp" id="form3Example4" class="form-control"/>
+                                    <label class="form-label" for="form3Example4">Password</label>
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                    Enregistrer
+                                </button>
+                            </div>
                         </form>
                         <a href="<?php echo base_url('F_Login_C') ?>">Retour</a>
                     </div>

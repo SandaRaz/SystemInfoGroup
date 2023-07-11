@@ -15,9 +15,9 @@
         }
 
         public function getMontantActuel($id_client){
-            $this->db->where('id_client',$id_client);
-            $data=$this->db->get('Compte')->row_array();
-            return $data['montant'];
+            $query="SELECT montant FROM Compte WHERE id_client=?";
+            $result = $this->db->query($query, $id_client);
+            return $result->row();
         }
 
         public function getMvtCompte($compte){
@@ -26,7 +26,7 @@
         }
 
         public function insertNewCompte($data){
-            
+            $this->db->insert('Compte', $data);
         }
         
     }

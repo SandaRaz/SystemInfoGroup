@@ -87,9 +87,10 @@ CREATE TABLE Regime_Alimentaire(
     prix DECIMAL(10,2)
 );
 
+SELECT * FROM Regime_Alimentaire;
+
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.2, 1, 15000);
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.1, 1, 10000);
-INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.3, 1, 20000);
 
 CREATE TABLE Plat(
     id_plat INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

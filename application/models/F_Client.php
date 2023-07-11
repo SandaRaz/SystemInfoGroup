@@ -8,12 +8,13 @@ class F_Client extends CI_Model{
 
     public function validLogin($mailnom,$mdp){
         $query = $this->db->get_where('Client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
-        $result = $query->row();
+        $result = $query->row()->id_client;
+        var_dump($result);
         
-        if($result == null){
+        if($result == 0){
             return 0;
         }else{
-            return $result->id_client;
+            return $result;
         }
     }
 
