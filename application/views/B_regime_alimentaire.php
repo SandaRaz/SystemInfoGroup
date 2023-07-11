@@ -1,3 +1,4 @@
+<?php $this->load->helper('url'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +10,8 @@
     <meta name="author" content="" />
     <title>Ajout Regime</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="assets/css/styles.css" rel="stylesheet" />
-    <script src="assets/vendor/fontawesome/js/all.min.js"></script>
+    <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+    <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -67,27 +68,27 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Ajout Plat:</h5>
                                 </br>
-                                    <form>
+                                    <form id="ajoutPlat">
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputText">
+                                                <input type="text" class="form-control" id="inputText" name="nom">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputEmail3" class="col-sm-2 col-form-label">Categorie</label>
                                             <div class="col-sm-10">
-                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                    <option>Entree</option>
-                                                    <option>Resistance</option>
-                                                    <option>Dessert</option>
+                                                <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="categorie">
+                                                    <option value="1">Entree</option>
+                                                    <option value="2">Resistance</option>
+                                                    <option value="3">Dessert</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="inputPassword3" class="col-sm-2 col-form-label">Calorie apporte</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputPassword">
+                                                <input type="text" class="form-control" id="inputPassword" name="calorie">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -113,47 +114,47 @@
                             <div class="card-body">
                                 <h5 class="card-title">Ajout Repas:</h5>
                                 </br>
-                                <form>
+                                <form id="ajoutRepas">
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Type</label>
                                         <div class="col-sm-10">
-                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                <option>1</option>
-                                                <option>5</option>
-                                                <option>10</option>
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="type">
+                                                <option value="1">Petit Dejeuner</option>
+                                                <option value="5">Dejeuner</option>
+                                                <option value="10">Diner</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputText">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputText">
-                                            </div>
-                                        </div>
-                                    <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Entree</label>
                                         <div class="col-sm-10">
-                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                <option>Les entrees</option>
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="id_entrer">
+                                                <option disabled selected hidden value="">Les entrees</option>
+                                                <?php
+                                                foreach ($entrer as $plat) : ?>
+                                                    <option value="<?php echo $plat['id_plat']; ?>"><?php echo $plat['nom']; ?></option> 
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputPassword3" class="col-sm-2 col-form-label">Resistance</label>
-                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                            <option>Les resistances</option>
+                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="id_resistance">
+                                            <option disabled selected hidden value="">Les resistances</option>
+                                            <?php
+                                                foreach ($resistance as $plat) : ?> 
+                                                    <option value="<?php echo $plat['id_plat']; ?>"><?php echo $plat['nom']; ?></option> 
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputPassword3" class="col-sm-2 col-form-label">Dessert</label>
-                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                            <option>Les desserts</option>
+                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="id_dessert">
+                                            <option disabled selected hidden value="">Les desserts</option>
+                                            <?php
+                                                foreach ($dessert as $plat) : ?> 
+                                                    <option value="<?php echo $plat['id_plat']; ?>"><?php echo $plat['nom']; ?></option> 
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                     <div class="row mb-3">
@@ -181,7 +182,7 @@
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputText">
+                                            <input type="text" class="form-control" id="inputText" name="libelle">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -189,7 +190,7 @@
                                         <div class="col-sm-10">
                                             <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
                                                 <option>SELECT NOM FROM REPAS</option>
-                                               
+                                                    
                                             </select>
                                         </div>
                                     </div>
@@ -230,40 +231,40 @@
                             <div class="card-body">
                                 <h5 class="card-title">Ajout Regime:</h5>
                                 </br>
-                                <form>
+                                <form id="ajoutRegime">
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Nom</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputText">
+                                            <input type="text" class="form-control" id="inputText" name="libelle">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Action</label>
                                         <div class="col-sm-10">
-                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
-                                                <option>-1</option>
-                                                <option>1</option>
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="action">
+                                                <option value="-1">-1</option>
+                                                <option value="1">1</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Benefice</label>
                                         <div class="col-sm-10">
-                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
+                                            <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="benefice">
                                                 <option>1-2-3-4.......</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputPassword3" class="col-sm-2 col-form-label">Duree</label>
-                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;">
+                                        <select style="width: 900px; height: 40px; border-color: gray; border-radius: 5px;" name="duree">
                                             <option>1-2-3-4.........</option>
                                         </select>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="inputEmail3" class="col-sm-2 col-form-label">Prix</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputText">
+                                            <input type="text" class="form-control" id="inputText" name="prix">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -293,14 +294,15 @@
             </footer>
         </div>
     </div>
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    <script src="assets/vendor/charts/Chart.js"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="assets/vendor/datatables/datatables.min.js"></script>
-    <script src="assets/js/datatables-simple-demo.js"></script>
+    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/scripts.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/charts/Chart.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-bar-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/ajax/B_RegimeAlim.js'); ?>"></script>
 </body>
 
 </html>

@@ -82,12 +82,14 @@ CREATE TABLE Repas(
     id_repas INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     types INT,
     id_Entrer INT,
-    id_Resistance INT,
-    id_Dessert INT,
+    id_Resistance INT not null,
+    id_Dessert INT not null,
     FOREIGN KEY (id_Entrer) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Resistance) REFERENCES Plat (id_plat),
     FOREIGN KEY (id_Dessert) REFERENCES Plat (id_plat)
 );
+
+SELECT*FROM Repas;
 
 CREATE TABLE Menu(
     id_menu INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -165,9 +167,6 @@ CREATE TABLE Mvt_Caisse(
     FOREIGN KEY (id_caisse) REFERENCES Caisse (id_caisse),
     PRIMARY KEY (id_mvt_caisse)
 );
-<<<<<<< HEAD
-SELECT count(id_client) as nb From Client;
-=======
 INSERT INTO Caisse VALUES(1, 10000);
 
 INSERT INTO Mvt_Caisse VALUES(null,1,5000,2000,'2023-07-07');
@@ -182,4 +181,10 @@ WHERE benefice > depense;
 SELECT *,(depense - benefice) as depense
 FROM Mvt_Caisse 
 WHERE benefice < depense;
->>>>>>> Sanda
+
+
+SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
+FROM Client as c
+JOIN Demande_code as dc
+ON c.id_client=c.id_client;
+
