@@ -1,3 +1,5 @@
+<?php $this->load->helper('url'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +11,8 @@
     <meta name="author" content="" />
     <title>Mes regimes</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="../assets/css/styles.css" rel="stylesheet" />
-    <script src="../assets/vendor/fontawesome/js/all.min.js"></script>
+    <link href="<?php echo base_url('assets/css/styles.css'); ?>" rel="stylesheet" />
+    <script src="<?php echo base_url('assets/vendor/fontawesome/js/all.min.js'); ?>"></script>
 </head>
 
 <body>
@@ -219,6 +221,15 @@
             </div>
         </div>
     </footer>
+
+    <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/scripts.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/charts/Chart.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-area-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/demo/chart-bar-demo.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/vendor/datatables/datatables.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/datatables-simple-demo.js'); ?>"></script>
 </body>
 
 </html>
