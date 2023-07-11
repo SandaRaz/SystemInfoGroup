@@ -26,10 +26,6 @@ class B_Code extends CI_Model{
     }
 
     public function validerCode($id_code, $id_client) {
-        $data = array(
-            'etat' => 10
-        );
-    
         $this->db->where('id_code', $id_code)
                  ->where('id_client', $id_client)
                  ->update('demande_code', array('etat' => 10));
