@@ -12,7 +12,8 @@ class B_RegimeAlim extends CI_Model {
     }
 
     public function getRegimeAlimByAction($action){
-        $query = $thid->db->get_where('Regime_Alimentaire')->result();
+        $this->db->where('action',$action);
+        return $this->db->get('Regime_Alimentaire')->result();
     }
 
     public function getRegimeAlimbyId($id){
@@ -40,6 +41,11 @@ class B_RegimeAlim extends CI_Model {
 
     public function regimeDetaillee(){
 
+    }
+    
+    function dateplus($date, $jours) {
+        $nouvelleDate = date('Y-m-d', strtotime($date . ' +'.$jours.' days'));
+        return $nouvelleDate;
     }
     
 }

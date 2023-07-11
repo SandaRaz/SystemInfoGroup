@@ -10,7 +10,10 @@ class B_RegimeSport extends CI_Model{
         $this->db->insert('regime_sportive', $data);
         return $this->db->insert_id();  // si 0 >> erreur
     }
-
+    public function getRegimeSportByAction($action){
+        $this->db->where('action',$action);
+        return $this->db->get('Regime_sportive')->result();
+    }
     public function modifier($id,$data){
         $this->db->update('regime_sportive', $data, array('id_regime_sport'=>$id));
     }
