@@ -31,8 +31,6 @@ JOIN Client AS c ON c.id_client = ids.id_client
 WHERE ids.id_client = 1;
 
 
-INSERT INTO Historique_poids VALUES(1, 70, '2023-07-11');
-INSERT INTO Historique_poids VALUES(1, 67, '2023-06-17');
 
 CREATE TABLE Compte(
     id_compte INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -90,10 +88,8 @@ CREATE TABLE Regime_Alimentaire(
 );
 
 
-
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.2, 1, 15000);
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.1, 1, 10000);
-INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.3, 1, 20000);
 
 CREATE TABLE Plat(
     id_plat INT NOT NULL PRIMARY KEY AUTO_INCREMENT,

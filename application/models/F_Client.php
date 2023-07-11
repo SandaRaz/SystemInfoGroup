@@ -12,11 +12,11 @@ class F_Client extends CI_Model{
     }
 
     public function modifier($id,$data){
-        $this->db->update('mvt_physique', $data, array('id_mvt'=>$id));
+        $this->db->update('Mvt_physique', $data, array('id_mvt'=>$id));
     }
 
     public function getAll(){
-        $query = $this->db->get('mvt_physique');
+        $query = $this->db->get('Mvt_physique');
         return $query->result();
     }
 
@@ -34,12 +34,8 @@ class F_Client extends CI_Model{
         }
     }
 
-    public function insertPoids($id_client, $newPoid) {
-        $data = array(
-            'poids' => $newPoid,
-            'dates' => date('Y-m-d')
-        );
-        return $this->db->insert('historique_poid', $data);
+    public function insertInfoSante($data) {
+        return $this->db->insert('informations_de_sante', $data);
     }
 
     public function getCompte($id_client){
