@@ -27,6 +27,27 @@
         
             $this->load->view('B_regime_alimentaire', $data);
         }
+
+        public function regimeSportif() {
+            // $this->load->model('B_Plat');
+            // $this->load->model('B_Repas');
+        
+            // $entrer = $this->B_Plat->getAllEntrer();
+            // $resistance = $this->B_Plat->getAllResistance();
+            // $dessert = $this->B_Plat->getAllDessert();
+            // $ptdej = $this->B_Repas->getPDejeuner();
+            // $dej = $this->B_Repas->getDejeuner();
+            // $din = $this->B_Repas->getDinner();
+        
+            // $data['entrer'] = $entrer;
+            // $data['resistance'] = $resistance;
+            // $data['dessert'] = $dessert;
+            // $data['ptdej'] = $ptdej;
+            // $data['dej'] = $dej;
+            // $data['din'] = $din;
+        
+            $this->load->view('B_regime_sportif');
+        }
         
         public function ajoutPlat() {
             $this->load->model('B_Plat');
