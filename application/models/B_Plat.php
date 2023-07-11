@@ -1,7 +1,6 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
-class B_RegimeAlim extends CI_Model {
+class B_Plat extends CI_Model {
     public function __construct() {
         parent::__construct();
         $this->load->database();
@@ -28,6 +27,27 @@ class B_RegimeAlim extends CI_Model {
     public function deletePlat($id){
         $this->db->where('id_plat', $id);
         return $this->db->delete('plat');
+    }
+
+    public function getAllEntrer() {
+        $this->db->where('categorie', 1);
+        $query = $this->db->get('Plat');
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return array();
+        }
+    }
+    
+
+    public function getAllResistance() {
+        $this->db->where('categorie', 2);
+        return $this->db->get('Plat')->result_array();
+    }
+
+    public function getAllDessert() {
+        $this->db->where('categorie', 3);
+        return $this->db->get('Plat')->result_array();
     }
 
 }

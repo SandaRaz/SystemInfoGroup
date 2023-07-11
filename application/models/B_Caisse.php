@@ -9,5 +9,23 @@
             $data=$this->db->get('Caisse')->row();
             return $data['montant'];
         }
+
+        public function getListeRevenu($mois, $annee){
+            $query = "SELECT *, (benefice - depense) as revenu
+                  FROM Mvt_Caisse 
+                  WHERE benefice > depense 
+                  AND MONTH(dates) = ? 
+                  AND YEAR(dates) = ?";
+            $result = $this->db->query($query, array($mois, $annee));
+        }
+    
+        public function getListeDepense($mois, $annee){
+            $query = "SELECT *, (benefice - depense) as depense
+                  FROM Mvt_Caisse 
+                  WHERE benefice < depense 
+                  AND MONTH(dates) = ? 
+                  AND YEAR(dates) = ?";
+            $result = $this->db->query($query, array($mois, $annee));
+        }
     }
 ?>
