@@ -197,15 +197,19 @@ CREATE TABLE Regime_sportive(
 
 INSERT INTO Regime_sportive VALUES(null,'Mampihena',-1,0.2);
 INSERT INTO Regime_sportive VALUES(null,'Mampihena be',-1,0.5);
-
 INSERT INTO Regime_sportive VALUES(null,'Mampitombo',1,0.2);
-INSERT INTO Regime_sportive VALUES(null,'Mampihena be',-1,0.5);
 
 CREATE TABLE Mvt_physique(
     id_mvt INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
     PRIMARY KEY (id_mvt)
 );
+
+INSERT INTO Mvt_physique VALUES(null, 'Pompe');
+INSERT INTO Mvt_physique VALUES(null, 'Squat');
+INSERT INTO Mvt_physique VALUES(null, 'Trottiner');
+INSERT INTO Mvt_physique VALUES(null, 'Musculation');
+INSERT INTO Mvt_physique VALUES(null, 'Endurance');
 
 CREATE TABLE Sport(
     id_regime_sport INT,
@@ -214,6 +218,15 @@ CREATE TABLE Sport(
     FOREIGN KEY (id_regime_sport) REFERENCES Regime_sportive (id_regime_sport),
     FOREIGN KEY (id_mvt) REFERENCES Mvt_physique (id_mvt)
 );
+
+INSERT INTO Sport VALUES(1, 5, 20);
+INSERT INTO Sport VALUES(1, 3, 10);
+INSERT INTO Sport VALUES(2, 1, 15);
+INSERT INTO Sport VALUES(2, 2, 15);
+INSERT INTO Sport VALUES(2, 3, 15);
+INSERT INTO Sport VALUES(3, 4, 15);
+INSERT INTO Sport VALUES(3, 1, 15);
+INSERT INTO Sport VALUES(3, 2, 15);
 
 ----------------------------------------OBJECTIF---------------------------------------------
 CREATE TABLE Objectif(

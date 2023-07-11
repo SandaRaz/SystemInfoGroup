@@ -7,8 +7,10 @@ class F_Objectif extends CI_Model{
         $this->load->database();
     }
 
-    public function getMyObjectif($idclient){
-
+    public function getAllObjectifs($idclient){
+        $query = $this->db->get_where('Objectif', array('id_client' => $idclient));
+        $result = $query->result();
+        return $result;
     }
 
     public function createObjectif($data){
