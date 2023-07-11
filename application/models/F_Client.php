@@ -21,10 +21,10 @@ class F_Client extends CI_Model{
     }
 
     public function getClientInfo($idclient){
-        $query = "SELECT hp.id_client, c.nom,c.prenom,c.date_de_naissance,c.genre,c.taille,c.email,hp.poids,max(dates) as dates 
-        FROM Historique_poids as hp
-        JOIN Client as c ON c.id_client = hp.id_client
-        WHERE hp.id_client = ?";
+        $query = "SELECT c.id_client, c.nom, c.prenom, c.date_de_naissance, c.genre, c.taille, c.email, ids.poids, MAX(ids.dates) AS dates
+        FROM information_de_sante AS ids
+        JOIN Client AS c ON c.id_client = ids.id_client
+        WHERE c.id_client = ?";
 
         $result = $this->db->query($query, array($idclient));
         if($result->num_rows() > 0){
@@ -55,16 +55,13 @@ class F_Client extends CI_Model{
     }
 
     public function validLogin($mailnom,$mdp){
-        $query1 = $this->db->get_where('client', array('email'=>$mailnom , 'mdp'=>$mdp));
-        $result1 = $query1->row();
+        $query = $this->db->get_where('Client', array('email'=>$mailnom , 'mdp'=>sha1($mdp)));
+        $result = $query->row();
 
-        $query2 = $this->db->get_where('client', array('nom'=>$mailnom , 'mdp'=>$mdp));
-        $result2 = $query2->row();
-
-        if(count($result1) <= 0 && count($result2) <= 0){
-            return false;
+        if(count($result1) == null){
+            return 0;
         }else{
-            return true;
+            return $result->id_client;
         }
     }
 

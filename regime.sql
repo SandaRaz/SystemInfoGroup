@@ -9,24 +9,27 @@ CREATE TABLE Client(
     prenom VARCHAR(255),
     date_de_naissance DATE,
     genre VARCHAR(255),
-    taille DECIMAL(10,2),
     email VARCHAR(255),
     mdp VARCHAR(255)
 );
 
-INSERT INTO Client VALUES(null, 'Raz', 'Sanda', '1999-12-31', 'M', 190, 'sanda@gmail.com', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2');
+INSERT INTO Client VALUES(null, 'Raz', 'Sanda', '1999-12-31', 'M','sanda@gmail.com', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2');
 
-CREATE TABLE Historique_poids(
+CREATE TABLE information_de_sante(
     id_client INT,
+    taille DECIMAL(10,2),
     poids DECIMAL(10,2),
     dates DATE,
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
-SELECT hp.id_client, c.nom,c.prenom,c.date_de_naissance,c.genre,c.taille,c.email,hp.poids,max(dates) as dates 
-FROM Historique_poids as hp
-JOIN Client as c ON c.id_client = hp.id_client
-WHERE hp.id_client=1;
+INSERT INTO information_de_sante (id_client, taille, poids, dates) VALUES (1, 190, 50, '2023-07-11');
+
+SELECT c.id_client, c.nom, c.prenom, c.date_de_naissance, c.genre, c.taille, c.email, ids.poids, MAX(ids.dates) AS dates
+FROM information_de_sante AS ids
+JOIN Client AS c ON c.id_client = ids.id_client
+WHERE ids.id_client = 1;
+
 
 INSERT INTO Historique_poids VALUES(1, 70, '2023-07-11');
 INSERT INTO Historique_poids VALUES(1, 67, '2023-06-17');
@@ -55,7 +58,7 @@ CREATE TABLE Code(
     valeur DECIMAL(10,2)
 );
 
-INSERT INTO Code VALUES(null, '1234567', 80000);
+INSERT INTO Code VALUES(null, '1234567', 80000);-----------------
 INSERT INTO Code VALUES(null, '1234', 50000);
 INSERT INTO Code VALUES(null, '7654321', 90000);
 
@@ -71,7 +74,7 @@ CREATE TABLE Demande_code(
 INSERT INTO Demande_code VALUES(1, 1, '2023-07-10',5);
 
 SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
-FROM client as c 
+FROM Client as c 
 JOIN Demande_code as dc 
 ON dc.id_client=c.id_client;
 
@@ -85,6 +88,8 @@ CREATE TABLE Regime_Alimentaire(
     duree INT,
     prix DECIMAL(10,2)
 );
+
+
 
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampihena", -1, 0.2, 1, 15000);
 INSERT INTO Regime_Alimentaire VALUES(null, "Regime Mampitombo", 1, 0.1, 1, 10000);
@@ -133,6 +138,12 @@ CREATE TABLE Regime_sportive(
     valeur DECIMAL(10,2)
 );
 
+INSERT INTO Regime_sportive VALUES(null,'Mampihena',-1,0.2);
+INSERT INTO Regime_sportive VALUES(null,'Mampihena be',-1,0.5);
+
+INSERT INTO Regime_sportive VALUES(null,'Mampitombo',1,0.2);
+INSERT INTO Regime_sportive VALUES(null,'Mampihena be',-1,0.5);
+
 CREATE TABLE Mvt_physique(
     id_mvt INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255),
@@ -161,7 +172,6 @@ CREATE TABLE Objectif(
     FOREIGN KEY (id_client) REFERENCES Client (id_client)
 );
 
-
 CREATE TABLE Historique_poids(
     id_client INT,
     poids DECIMAL(10,2),
@@ -170,7 +180,6 @@ CREATE TABLE Historique_poids(
 );
 
 -------------------------------------BACK-OFFICE----------------------------------------------
-
 CREATE TABLE Admin(
     id_admin INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     mdp VARCHAR(255)
@@ -216,4 +225,6 @@ SELECT c.id_client, dc.id_code,c.nom,c.prenom,dc.dates,dc.etat
 FROM Client as c
 JOIN Demande_code as dc
 ON c.id_client=c.id_client;
+
+SELECT*FROM `Objectif`;
 
